@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module rename-to='Benchmark'>
+
+	<inherits name='com.google.gwt.user.User' />
+	<inherits name='pyramid.bioffice.common.Dto' />
+
+	<inherits name='com.google.gwt.user.theme.standard.Standard' />
+
+	<source path='gwt' />
+
+	<add-linker name="xsiframe" />
+	<set-configuration-property name="devModeRedirectEnabled" value="true" />
+	<set-property name="compiler.useSourceMaps" value="true"/>
+
+</module>

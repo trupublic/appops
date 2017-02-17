@@ -1,5 +1,6 @@
 /// <reference path='./Http.ts'/>
 /// <reference path='./Common.ts'/>
+/// <reference path='./LibraryService.d.ts'/>
 
 module Library{
 

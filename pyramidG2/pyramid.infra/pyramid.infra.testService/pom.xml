@@ -7,10 +7,10 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>pyramid.infra.sampleService</artifactId>
-	<name>Infranstructure test data Service</name>
+	<name>SampleService - Infrastructure test data Service</name>
 	<properties>
 		<!-- Convenience property to set the GWT version -->
-		<gwtVersion>2.8.0-SNAPSHOT</gwtVersion>
+		<gwtVersion>2.8.0</gwtVersion>
 
 		<!-- GWT needs at least java 1.7 -->
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -66,6 +66,11 @@
 			<groupId>com.microsoft</groupId>
 			<artifactId>sqljdbc4</artifactId>
 			<version>sqljdbc4</version>
+		</dependency>
+				<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.39</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -130,7 +135,20 @@
 					<superDevMode>true</superDevMode>
 				</configuration>
 			</plugin>
+			
+				
 
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<!-- Disable annotation processing for ourselves. -->
+					<compilerArgument>-proc:none</compilerArgument>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
+
 </project>

@@ -53,7 +53,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.pa.infra</groupId>
-			<artifactId>pyramid.infra.sample</artifactId>
+			<artifactId>pyramid.infra.sampleService</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>

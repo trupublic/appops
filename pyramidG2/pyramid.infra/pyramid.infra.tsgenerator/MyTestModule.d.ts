@@ -8,4 +8,10 @@ declare module MyTestModule {
         getTestMethod(): void;
     }
 
+    export interface NativeRegExp {
+        lastIndex: number;
+        test(arg0: string): boolean;
+        exec(arg0: string): any;
+    }
+
 }

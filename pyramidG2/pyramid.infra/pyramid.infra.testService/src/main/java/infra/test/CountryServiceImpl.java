@@ -1,54 +1,62 @@
 package infra.test;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import pyramid.infra.core.provision.Benchmarked;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import pyramid.infra.core.provision.Benchmarked;
-
 public class CountryServiceImpl implements CountryService {
 
-	private final String USERNAME = "sa";
-	private final String PASSWORD = "snap3535!";
-	private final String CONNECTION_STRING = "jdbc:sqlserver://data2\\sql2014;databaseName=PyramidGis";
-	private final String DEFAULT_QUERY_PREFIX = "SELECT TOP ";
-	private final String DEFAULT_QUERY_POSTFIX = " country, city, Latitude, Longitude FROM WORLDcities";
+	private final String USERNAME = "root";
+	private final String PASSWORD = "mysql#htznr";
+	//private final String CONNECTION_STRING = "jdbc:sqlserver://data2\\sql2014;databaseName=PyramidGis";
+	private final String CONNECTION_STRING = "jdbc:mysql://localhost/gisdemo";
+	private final String DEFAULT_QUERY_PREFIX = "SELECT country, city, Latitude, Longitude FROM cities limit ";
 
-	@Override
+	@Benchmarked
 	public List<Country> getCountryList() {
 		return executeQuery(10);
 	}
 	
+	public List<Country> getCountryList(int rowcount){
+		return executeQuery(rowcount);
+	}
+	
 	@Benchmarked
-	@Override
 	public List<Country> getCountriesFiltered(CountryFilter filter) {
 		return executeQuery(filter.getCount());
 	}
 	
-	@Benchmarked
-	public ArrayList<Country> executeQuery(int rowAmount) {
-		String queryString = this.DEFAULT_QUERY_PREFIX + rowAmount + this.DEFAULT_QUERY_POSTFIX;
+	protected ArrayList<Country> executeQuery(int rowAmount) {
+
+		String queryString = this.DEFAULT_QUERY_PREFIX + rowAmount;
 		return executeQuery(queryString);
 	}
 	
+	private double getParsedDouble(String d){
+		
+		try{
+			return Double.parseDouble(d);
+		}catch(Exception ex){
+			return -1D ;
+		}
+	}
+	
 	@Benchmarked
-	public ArrayList<Country> executeQuery(String querySring) {
-		ArrayList<Country> result = new ArrayList<Country>();
+	protected ArrayList<Country> executeQuery(String queryString) {
+		ArrayList<Country> result = new ArrayList<>();
 
 		try (Connection conn = DriverManager.getConnection(this.CONNECTION_STRING, this.USERNAME, this.PASSWORD);) {
 
 			Statement statement = conn.createStatement();
-			ResultSet queryResult = statement.executeQuery(querySring);
+			ResultSet queryResult = statement.executeQuery(queryString);
 
 			while (queryResult.next()) {
 				Country country = new Country(queryResult.getString(1), queryResult.getString(2),
-						queryResult.getDouble(3), queryResult.getDouble(4));
+						getParsedDouble(queryResult.getString(3)), getParsedDouble(queryResult.getString(4)));
 				result.add(country);
 			}
 

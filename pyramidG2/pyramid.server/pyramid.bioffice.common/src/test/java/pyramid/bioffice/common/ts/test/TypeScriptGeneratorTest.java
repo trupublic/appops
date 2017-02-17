@@ -11,7 +11,7 @@ import tsgen.TypeScriptGenerator;
 
 public class TypeScriptGeneratorTest {
 
-	@Test
+	//@Test
 	public void testGeneration() throws IOException{
 		
 		final File f = new File(TypeScriptGeneratorTest.class.getProtectionDomain().getCodeSource().getLocation().getPath());

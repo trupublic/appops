@@ -152,10 +152,7 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
-			<!-- <plugin> <artifactId>maven-dependency-plugin</artifactId> <executions> 
-				<execution> <phase>test</phase> <goals> <goal>copy-dependencies</goal> </goals> 
-				<configuration> <outputDirectory>${outputDirectory}/</outputDirectory> </configuration> 
-				</execution> </executions> </plugin> -->
+
 		</plugins>
 	</build>
 </project>

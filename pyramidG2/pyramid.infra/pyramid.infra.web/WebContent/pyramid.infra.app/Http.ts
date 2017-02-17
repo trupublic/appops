@@ -71,15 +71,16 @@ module Http {
 
         post(): void {
             var xhr = new XMLHttpRequest();
+            var that = this.back ;
             xhr.open('POST', document.getElementsByTagName('base')[0].href + "/infraEntryPoint", true);
             xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
             xhr.onload = function() {
                 if (xhr.status === 200) {
-                    this.back.onSuccess(JSON.parse(xhr.responseText));
+                    that.onSuccess(JSON.parse(xhr.responseText));
                 }
                 else {
-                    this.back.onError();
+                    that.onError();
                 }
             };
             xhr.send(this.getQueryString());

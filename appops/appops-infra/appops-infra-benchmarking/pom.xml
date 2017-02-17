@@ -9,12 +9,10 @@
 	<artifactId>appops-infra-benchmarking</artifactId>
 	<name>Appops Infrastructure benchmarking service</name>
 
-
-
 	<dependencies>
 		<dependency>
-			<groupId>com.pa.infra</groupId>
-			<artifactId>pyramid.infra.core</artifactId>
+			<groupId>org.appops</groupId>
+			<artifactId>appops-infra-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
@@ -64,7 +62,7 @@
 				<configuration>
 					<compilerArgs>
 						<compilerArg>-AxmlModuleNames=Benchmark</compilerArg> <!-- no trailing gwt.xml / -->
-						<compilerArg>-AmodulePath=pyramid\\infra</compilerArg> <!-- no trailing or beginning / -->
+						<compilerArg>-AmodulePath=appops\\infra</compilerArg> <!-- no trailing or beginning / -->
 					</compilerArgs>
 					<source>1.8</source>
 					<target>1.8</target>
@@ -92,7 +90,7 @@
 									
 									<!-- folder path for placing typescript files - \ at the end is important  -->
 									
-									<arg value="..\pyramid.infra.web\WebContent\pyramid.infra.app\typings\" />
+									<arg value="..\appops-infra-web\WebContent\appops-infra-app\typings\" />
 								
 									<!-- specify typescript module name you want here  -->
 									<arg value="Benchmark" />

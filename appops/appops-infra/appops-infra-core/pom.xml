@@ -6,5 +6,5 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>appops-infra-core</artifactId>
-  <name>Service Core</name>
+  <name>appops core library</name>
 </project>

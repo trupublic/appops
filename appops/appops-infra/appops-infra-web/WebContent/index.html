@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Starting Pyramid Client</title>
+
+<script src="http://d3js.org/d3.v2.js"></script>
+<script src="appops-infra-app/js/D3App.js"></script>
+<!-- <script src="config.js"> -->
+
+</script>
+
+<!-- 2. Configure SystemJS -->
+<script>
+
+</script>
+
+<style>
+    svg {
+        font-family: "Segoe UI", sans-serif;
+    }
+    .day {
+        stroke: #ccc;
+    }
+
+    .pass {
+        fill: rgb(0, 166, 0);
+    }
+
+    .fail {
+        fill: rgb(255, 83, 0);
+    }
+
+    .hashes line {
+        stroke: #000; stroke-width: 2;
+    }
+
+    .tick {
+        stroke: #000; stroke-width: 2;
+    }
+
+    .axis path {
+        stroke: #000; stroke-width: 2;
+    }
+    body {
+        font-family: 'Segoe UI';
+    }
+</style>
+</head>
+
+<!-- 3. Display the application -->
+<body>
+
+	<a href="./countries.html">Countries</a>
+	<h1>Status</h1>
+	<div id="passchart"></div>
+
+	<h1>Compiler Performance</h1>
+	<div id="performanceChart"></div>
+
+</body>
+</html>

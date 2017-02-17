@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Starting appops Client</title>
+
+<base href="/appops-infra-web/">
+<script src="appops-infra-app/js/Http.js"></script>
+<script src="appops-infra-app/js/Provision.js"></script>
+<script src="appops-infra-app/js/Common.js"></script>
+<script src="appops-infra-app/js/Dashboard.js"></script>
+<script src="appops-infra-app/js/LibraryService.js"></script>
+<script src="appops-infra-app/js/CountryService.js"></script>
+
+<style>
+
+div {
+    width:500px;
+    margin: auto;
+    margin-top: 10px ;
+}
+
+</style>
+</head>
+
+<body>
+
+  <a href="./index.html">Home</a>
+  <div>
+  <input type=text name=`count` id="count"> </input>
+
+  <input type=submit value="Draw Visuals" onclick="countryApp.refreshDashboard()" > </input>
+
+  <input type=submit value="Clear All" onclick="countryApp.clearAll()" > </input>
+
+  <input type=submit value="Benchmarks" onclick="countryApp.showBenchmarks()" > </input>
+
+  <input type=submit value="Switch provision" onclick="countryApp.switchOp()" > </input>
+
+  <div id="benchmarks" ></div>
+
+  <div id="canvasdiv">
+
+  <canvas id="topCanvas"></canvas>
+
+  </div>
+
+  <div id="countries"></div>
+
+</body>
+</html>

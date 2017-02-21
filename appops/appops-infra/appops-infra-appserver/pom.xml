@@ -25,11 +25,7 @@
 			<version>4.0</version>
 		</dependency>
 
-		<dependency>
-			<groupId>com.microsoft</groupId>
-			<artifactId>sqljdbc4</artifactId>
-			<version>sqljdbc4</version>
-		</dependency>
+	
 		<dependency>
 			<groupId>org.hamcrest</groupId>
 			<artifactId>hamcrest-core</artifactId>
@@ -75,7 +71,7 @@
 				<executions>
 					<execution>
 						<id>ant-execute</id>
-						<phase> install </phase>
+						<!-- <phase> install  </phase> -->
 						<configuration>
 							<target>
 								<property name="runtime_classpath" refid="maven.runtime.classpath" />

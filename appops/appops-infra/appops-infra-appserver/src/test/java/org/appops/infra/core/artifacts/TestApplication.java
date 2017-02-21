@@ -1,15 +1,15 @@
 package org.appops.infra.core.artifacts;
 
 
-import org.appops.infra.core.PyramidApplication;
-import org.appops.infra.core.PyramidInfraException;
+import org.appops.infra.core.AppOpsApplication;
+import org.appops.infra.core.AppOpsInfraException;
 
 
-public class TestApplication implements PyramidApplication {
+public class TestApplication implements AppOpsApplication {
 
 	
 	@Override
-	public void runApplication(String[] args) throws PyramidInfraException {
+	public void runApplication(String[] args) throws AppOpsInfraException {
 		System.out.println("App Started");
 	}
 

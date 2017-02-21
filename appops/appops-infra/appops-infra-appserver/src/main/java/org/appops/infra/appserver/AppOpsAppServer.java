@@ -2,16 +2,16 @@ package org.appops.infra.appserver;
 
 import java.io.IOException;
 
-import org.appops.infra.core.PyramidApplication;
-import org.appops.infra.core.PyramidInfraException;
+import org.appops.infra.core.AppOpsApplication;
+import org.appops.infra.core.AppOpsInfraException;
 import org.appops.infra.dispatcher.InvocableStore;
 
 import com.google.inject.Inject;
 
-public class PyramidServerApplication implements PyramidApplication {
+public class AppOpsAppServer implements AppOpsApplication {
 	
 	private InvocableStore invocableStore = null ;
-	private SocketEntryPoint entryPoint = null ;
+	private AppServerEntryPoint entryPoint = null ;
 	
 	@Inject
 	public void setInvocableStore(InvocableStore store){
@@ -19,17 +19,17 @@ public class PyramidServerApplication implements PyramidApplication {
 	}
 	
 	@Inject
-	public void setSocketEntryPoint(SocketEntryPoint entry){
+	public void setSocketEntryPoint(AppServerEntryPoint entry){
 		entryPoint = entry ; 
 	}
 	
 	@Override
-	public void runApplication(String[] args) throws PyramidInfraException{
+	public void runApplication(String[] args) throws AppOpsInfraException{
 		
 		try {
 			invocableStore.buildServiceGrammar();
 		} catch (IOException e) {
-			throw new PyramidInfraException("Unable to build application grammar" , e);
+			throw new AppOpsInfraException("Unable to build application grammar" , e);
 		}
 		
 		entryPoint.start(args);

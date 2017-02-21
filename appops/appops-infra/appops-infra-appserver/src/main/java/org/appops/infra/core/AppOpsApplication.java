@@ -9,7 +9,7 @@ import com.google.inject.Module;
  * @author Debasish.Padhy
  *
  */
-public interface PyramidApplication {
+public interface AppOpsApplication {
 
 	
 	/**
@@ -17,7 +17,7 @@ public interface PyramidApplication {
 	 * 
 	 * @return error code
 	 */
-	public void runApplication(String[] args)throws PyramidInfraException;
+	public void runApplication(String[] args)throws AppOpsInfraException;
 
 	public void stopApplication(String[] args);
 

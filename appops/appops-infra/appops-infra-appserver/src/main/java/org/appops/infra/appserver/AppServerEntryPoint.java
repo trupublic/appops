@@ -10,13 +10,13 @@ import java.net.Socket;
 
 import javax.inject.Inject;
 
-import org.appops.infra.core.PyramidInfraException;
+import org.appops.infra.core.AppOpsInfraException;
 import org.appops.infra.dispatcher.InvocationDispatcher;
 
 import com.google.gson.Gson;
 
 
-public class SocketEntryPoint {
+public class AppServerEntryPoint {
 
 	private static ServerSocket serverSocket;
 	private static final int INCOMING_PORT = 1234;
@@ -24,20 +24,20 @@ public class SocketEntryPoint {
 	private InvocationDispatcher invocationDispatcher;
 
 	@Inject
-	public SocketEntryPoint(InvocationDispatcher dispatcher ) {
+	public AppServerEntryPoint(InvocationDispatcher dispatcher ) {
 		isRunning = false;
 		invocationDispatcher = dispatcher ;
 	}
 
 	public void start(String[] args) {
-		if (!SocketEntryPoint.isRunning) {
+		if (!AppServerEntryPoint.isRunning) {
 			try {
-				SocketEntryPoint.serverSocket = new ServerSocket(SocketEntryPoint.INCOMING_PORT, 10,
+				AppServerEntryPoint.serverSocket = new ServerSocket(AppServerEntryPoint.INCOMING_PORT, 10,
 						InetAddress.getByName("localhost"));
-				SocketEntryPoint.isRunning = true;
+				AppServerEntryPoint.isRunning = true;
 				System.out.println("My app server is running on port number ----> " + INCOMING_PORT) ;
 				
-				while (SocketEntryPoint.isRunning) {
+				while (AppServerEntryPoint.isRunning) {
 					try (Socket connectedSocket = serverSocket.accept()) {
 						long startTime = System.nanoTime();
 						
@@ -60,7 +60,7 @@ public class SocketEntryPoint {
 						toClient.flush();
 
 						System.out.println("AS : Response Sent - " + (System.nanoTime() - startTime) / 1000000);
-					} catch (PyramidInfraException e) {
+					} catch (AppOpsInfraException e) {
 						e.printStackTrace();
 					}
 				}
@@ -75,10 +75,10 @@ public class SocketEntryPoint {
 	public void stop(String[] args) {
 		System.out.println("Stop service");
 
-		if (SocketEntryPoint.isRunning) {
+		if (AppServerEntryPoint.isRunning) {
 			try {
-				SocketEntryPoint.serverSocket.close();
-				SocketEntryPoint.isRunning = false;
+				AppServerEntryPoint.serverSocket.close();
+				AppServerEntryPoint.isRunning = false;
 			} catch (IOException e) {
 
 			}

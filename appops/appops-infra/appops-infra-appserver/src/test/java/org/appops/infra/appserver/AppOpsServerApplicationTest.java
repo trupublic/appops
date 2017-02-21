@@ -3,7 +3,7 @@ package org.appops.infra.appserver;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import org.appops.infra.core.PyramidAppStarter;
+import org.appops.infra.core.AppOpsAppStarter;
 import org.appops.infra.core.artifacts.Country;
 import org.appops.infra.dispatcher.ServiceMethod;
 import org.junit.Test;
@@ -19,7 +19,7 @@ import java.lang.reflect.Type;
 import java.net.InetAddress;
 import java.net.Socket;
 
-public class PyramidServerApplicationTest {
+public class AppOpsServerApplicationTest {
 
 	@Test
 	public void testServiceMethodInvocation() throws IOException, InterruptedException {
@@ -41,7 +41,7 @@ public class PyramidServerApplicationTest {
 			@Override
 			public void run() {
 				try {
-					PyramidAppStarter.start(null);
+					AppOpsAppStarter.start(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

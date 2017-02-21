@@ -2,7 +2,7 @@ package org.appops.infra.appserver.provision;
 
 import java.util.HashMap;
 
-import org.appops.infra.core.PyramidInfraException;
+import org.appops.infra.core.AppOpsInfraException;
 import org.appops.infra.dispatcher.InvocableStore;
 
 import com.google.inject.Inject;
@@ -21,9 +21,9 @@ public class ProvisionSettingsStore {
 		return currentGlobal;
 	}
 
-	public void setCurrentGlobal(ProvisionMode cg) throws PyramidInfraException {
+	public void setCurrentGlobal(ProvisionMode cg) throws AppOpsInfraException {
 		if (cg == ProvisionMode.NOOP)
-			throw new PyramidInfraException("Cannot set global provisioning to NOOP. Choose among DEVELPOMENT, PRODUCTION or TEST instead");
+			throw new AppOpsInfraException("Cannot set global provisioning to NOOP. Choose among DEVELPOMENT, PRODUCTION or TEST instead");
 		this.currentGlobal = cg;
 	}
 

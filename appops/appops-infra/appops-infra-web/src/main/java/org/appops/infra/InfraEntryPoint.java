@@ -1,4 +1,4 @@
-package com.pa.infra;
+package org.appops.infra;
 
 import java.io.BufferedReader;
 import java.io.IOException;

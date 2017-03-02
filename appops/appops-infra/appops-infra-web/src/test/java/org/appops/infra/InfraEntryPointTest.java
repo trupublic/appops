@@ -1,4 +1,4 @@
-package com.pa.infra;
+package org.appops.infra;
 
 import static org.junit.Assert.*;
 

@@ -11,26 +11,26 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 
-public class PyramidAppStarter {
+public class AppOpsAppStarter {
 
 	private static Injector injector = null ;
 
-	public static void main(String[] args) throws InstantiationException, IllegalAccessException, ClassNotFoundException, IOException, PyramidInfraException {
+	public static void main(String[] args) throws InstantiationException, IllegalAccessException, ClassNotFoundException, IOException, AppOpsInfraException {
 		
-		injector = Guice.createInjector(PyramidAppStarter.getApplicationModules());
+		injector = Guice.createInjector(AppOpsAppStarter.getApplicationModules());
 		
-		injector.getInstance(PyramidApplication.class).runApplication(args);
+		injector.getInstance(AppOpsApplication.class).runApplication(args);
 		
 	}
 	
-	public static void start(String[] args) throws InstantiationException, IllegalAccessException, IOException, PyramidInfraException{
-		injector = Guice.createInjector(PyramidAppStarter.getApplicationModules());
+	public static void start(String[] args) throws InstantiationException, IllegalAccessException, IOException, AppOpsInfraException{
+		injector = Guice.createInjector(AppOpsAppStarter.getApplicationModules());
 		
-		injector.getInstance(PyramidApplication.class).runApplication(args);
+		injector.getInstance(AppOpsApplication.class).runApplication(args);
 	}
 	
 	public static void stop(String[] args){
-		injector.getInstance(PyramidApplication.class).stopApplication(args) ;
+		injector.getInstance(AppOpsApplication.class).stopApplication(args) ;
 	}
 	
 	static Set<Module> getApplicationModules() throws IOException, InstantiationException, IllegalAccessException{

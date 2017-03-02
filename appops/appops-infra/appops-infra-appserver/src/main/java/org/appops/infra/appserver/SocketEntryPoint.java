@@ -10,7 +10,7 @@ import java.net.Socket;
 
 import javax.inject.Inject;
 
-import org.appops.infra.core.PyramidInfraException;
+import org.appops.infra.core.AppOpsInfraException;
 import org.appops.infra.dispatcher.InvocationDispatcher;
 
 import com.google.gson.Gson;
@@ -60,7 +60,7 @@ public class SocketEntryPoint {
 						toClient.flush();
 
 						System.out.println("AS : Response Sent - " + (System.nanoTime() - startTime) / 1000000);
-					} catch (PyramidInfraException e) {
+					} catch (AppOpsInfraException e) {
 						e.printStackTrace();
 					}
 				}

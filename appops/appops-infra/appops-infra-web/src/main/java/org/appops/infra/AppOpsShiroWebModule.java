@@ -1,4 +1,4 @@
-package com.pa.infra;
+package org.appops.infra;
 
 import org.apache.shiro.config.Ini;
 import org.apache.shiro.guice.ShiroModule;
@@ -6,7 +6,7 @@ import org.apache.shiro.realm.text.IniRealm;
 
 import com.google.inject.Provides;
 
-public class PyramidShiroWebModule extends ShiroModule {
+public class AppOpsShiroWebModule extends ShiroModule {
 
 	@Override
 	protected void configureShiro() {

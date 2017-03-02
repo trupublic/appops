@@ -12,7 +12,7 @@ import javax.inject.Inject;
 import org.appops.infra.appserver.provision.ProvisionMode;
 import org.appops.infra.appserver.provision.ProvisionSettingsService;
 import org.appops.infra.benchmarking.Ref;
-import org.appops.infra.core.PyramidInfraException;
+import org.appops.infra.core.AppOpsInfraException;
 import org.appops.infra.core.provision.DevelopmentImpl;
 import org.appops.infra.core.provision.NoopImpl;
 import org.appops.infra.core.provision.ProductionImpl;
@@ -42,7 +42,7 @@ public class InvocationDispatcher {
 		provisionSettings = provisionService ;
 	}
 
-	public Object invokeRest(String clientString) throws PyramidInfraException {
+	public Object invokeRest(String clientString) throws AppOpsInfraException {
 
 		try {
 			logger.log(Level.INFO, "Service invocation request received with client Request - " + clientString);
@@ -51,7 +51,7 @@ public class InvocationDispatcher {
 		} catch (InstantiationException | IllegalAccessException | NoSuchMethodException | SecurityException
 				| IllegalArgumentException | InvocationTargetException e) {
 			e.printStackTrace();
-			throw new PyramidInfraException(
+			throw new AppOpsInfraException(
 					"Exception trying to invoke Service method using request string - " + clientString, e);
 		}
 
@@ -75,12 +75,12 @@ public class InvocationDispatcher {
 		Invocable inv = invocableStore.getInvocable(serviceName) ;
 		
 		if (inv == null)
-			throw new PyramidInfraException("Error invoking service at - " + serviceName + " Specified service doesn't exists "   );
+			throw new AppOpsInfraException("Error invoking service at - " + serviceName + " Specified service doesn't exists "   );
 		
 		Class<?> service = inv.getInvocable();
 		
 		if (service == null){
-			throw new InvocationTargetException(new PyramidInfraException("Error trying to find matching service interface for service -" + serviceName));
+			throw new InvocationTargetException(new AppOpsInfraException("Error trying to find matching service interface for service -" + serviceName));
 		}else{
 			logger.log(Level.INFO , "found matching service interface --- >" + service.getCanonicalName());
 		}
@@ -140,7 +140,7 @@ public class InvocationDispatcher {
 			key = Key.get(inv.getInvocable());
 			break;
 		default:
-			throw new PyramidInfraException("Unknown provision mode - service cannot be invoked") ;
+			throw new AppOpsInfraException("Unknown provision mode - service cannot be invoked") ;
 		}
 		
 		return service = injector.getInstance(key);

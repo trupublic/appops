@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.appops.infra.core.PyramidInfraException;
+import org.appops.infra.core.AppOpsInfraException;
 import org.appops.infra.core.annotations.Service;
 
 import com.google.common.base.Preconditions;
@@ -118,7 +118,7 @@ public class InvocableStore {
 		Invocable inv = invocableMap.get(name);
 		
 		if (inv == null)
-			throw new PyramidInfraException("Path is not supported for invocation - " + name) ;
+			throw new AppOpsInfraException("Path is not supported for invocation - " + name) ;
 		
 		return inv.getInvocable();
 	}

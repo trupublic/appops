@@ -7,9 +7,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>appops-infra-sample-service</artifactId>
-	
+
 	<name>SampleService - Infrastructure test data Service</name>
-	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -54,12 +54,8 @@
 			<artifactId>appops-infra-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
 		<dependency>
-			<groupId>com.microsoft</groupId>
-			<artifactId>sqljdbc4</artifactId>
-			<version>sqljdbc4</version>
-		</dependency>
-				<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.39</version>
@@ -86,7 +82,7 @@
 									<arg value="jsinterop.annotations.JsType" />
 									<!-- folder path for placing typescript files - \ at the end is 
 										important -->
-									<arg value="..\pyramid.bioffice.webserver\WebContent\typings\" />
+									<arg value="..\appops-infra-web\WebContent\typings\" />
 									<!-- specify typescript module name you want here -->
 									<arg value="JsHost" />
 								</exec>
@@ -104,7 +100,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
-				<version>2.8.0-SNAPSHOT</version>
+				<version>2.8.0</version>
 				<executions>
 					<execution>
 						<goals>
@@ -119,7 +115,7 @@
 				<configuration>
 					<runTarget>GwtBiOffice.html</runTarget>
 					<modules>
-						<module>infra.GwtBiOffice</module>
+						<module>org.appops.GwtBiOffice</module>
 					</modules>
 					<copyWebapp>true</copyWebapp>
 					<generateJsInteropExports>true</generateJsInteropExports>
@@ -127,8 +123,8 @@
 					<superDevMode>true</superDevMode>
 				</configuration>
 			</plugin>
-			
-				
+
+
 
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

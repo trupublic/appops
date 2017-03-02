@@ -3,7 +3,7 @@
 <module rename-to='Benchmark'>
 
 	<inherits name='com.google.gwt.user.User' />
-	<inherits name='pyramid.bioffice.common.Dto' />
+	<inherits name='org.appops.bioffice.common.Dto' />
 
 	<inherits name='com.google.gwt.user.theme.standard.Standard' />
 

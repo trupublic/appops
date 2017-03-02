@@ -7,7 +7,6 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   
-  <groupId>org.appops</groupId>
   <artifactId>appops-infra</artifactId>
   <packaging>pom</packaging>
   

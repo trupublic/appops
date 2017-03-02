@@ -15,7 +15,7 @@ public class TypeScriptGenerator {
 
 	private static final String JSTYPE = "jsinterop.annotations.JsType";
 	
-	private static final String SERVICETYPE = "pyramid.infra.core.annotations.Service" ;
+	private static final String SERVICETYPE = "org.appops.infra.core.annotations.Service" ;
 	/**
 	 * arg[0] fully qualified annotation class name
 	 * arg[1] path to folder where ts files will be placed

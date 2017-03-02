@@ -65,7 +65,7 @@
 
 		<plugins>
 
-			<!-- debasish : run goal - "mvn compile test-compile" respectively to 
+			<!-- debasish : run goal - "mvn compile test-compile"  to 
 				compile your java sources and test sources respectively -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

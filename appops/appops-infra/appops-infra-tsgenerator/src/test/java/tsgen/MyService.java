@@ -1,6 +1,6 @@
 package tsgen;
 
-import pyramid.infra.core.annotations.Service;
+import org.appops.infra.core.annotations.Service;
 
 @Service
 public interface MyService {

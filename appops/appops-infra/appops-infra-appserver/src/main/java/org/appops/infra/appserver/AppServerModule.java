@@ -15,7 +15,7 @@ public class AppServerModule extends AbstractModule {
 	@Override
 	protected void configure() {
 
-		bind(AppServerEntryPoint.class).in(Singleton.class);
+		bind(AppServerSocketEntryPoint.class).in(Singleton.class);
 		bind(AppOpsApplication.class).to(AppOpsAppServer.class).in(Singleton.class);
 		
 		bind(ProvisionSettingsService.class).to(ProvisionSettingsServiceImpl.class) ;

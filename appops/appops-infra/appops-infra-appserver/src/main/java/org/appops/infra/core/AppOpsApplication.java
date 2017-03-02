@@ -1,9 +1,5 @@
 package org.appops.infra.core;
 
-import java.util.Set;
-
-import com.google.inject.Module;
-
 /**
  * Implement this interface to define your application entry point
  * @author Debasish.Padhy

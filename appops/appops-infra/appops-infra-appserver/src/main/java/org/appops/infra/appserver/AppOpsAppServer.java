@@ -11,7 +11,7 @@ import com.google.inject.Inject;
 public class AppOpsAppServer implements AppOpsApplication {
 	
 	private InvocableStore invocableStore = null ;
-	private AppServerEntryPoint entryPoint = null ;
+	private AppServerSocketEntryPoint entryPoint = null ;
 	
 	@Inject
 	public void setInvocableStore(InvocableStore store){
@@ -19,7 +19,7 @@ public class AppOpsAppServer implements AppOpsApplication {
 	}
 	
 	@Inject
-	public void setSocketEntryPoint(AppServerEntryPoint entry){
+	public void setSocketEntryPoint(AppServerSocketEntryPoint entry){
 		entryPoint = entry ; 
 	}
 	

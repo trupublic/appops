@@ -72,13 +72,13 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.pa.infra</groupId>
-			<artifactId>pyramid.infra.scanner</artifactId>
+			<groupId>org.appops</groupId>
+			<artifactId>appops-infra-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.pa.infra</groupId>
-			<artifactId>pyramid.infra.core</artifactId>
+			<groupId>org.appops</groupId>
+			<artifactId>appops-infra-scanner</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

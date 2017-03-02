@@ -2,8 +2,8 @@ package org.appops.demo;
 
 import java.util.List;
 
-import pyramid.infra.core.annotations.Service;
-import pyramid.infra.core.provision.Benchmarked;
+import org.appops.infra.core.annotations.Service;
+import org.appops.infra.core.provision.Benchmarked;
 
 
 @Service

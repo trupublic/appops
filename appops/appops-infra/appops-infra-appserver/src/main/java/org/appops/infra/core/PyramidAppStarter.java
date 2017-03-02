@@ -5,11 +5,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.appops.infra.core.annotations.ServiceModule;
+import org.appops.scanner.AnnotatedClassScanner;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
-import com.pa.tsgen.scanner.AnnotatedClassScanner;
 
 public class PyramidAppStarter {
 

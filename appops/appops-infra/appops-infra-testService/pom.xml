@@ -7,9 +7,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>appops-infra-sample-service</artifactId>
-	
+
 	<name>SampleService - Infrastructure test data Service</name>
-	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -54,12 +54,8 @@
 			<artifactId>appops-infra-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
 		<dependency>
-			<groupId>com.microsoft</groupId>
-			<artifactId>sqljdbc4</artifactId>
-			<version>sqljdbc4</version>
-		</dependency>
-				<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.39</version>
@@ -127,8 +123,8 @@
 					<superDevMode>true</superDevMode>
 				</configuration>
 			</plugin>
-			
-				
+
+
 
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

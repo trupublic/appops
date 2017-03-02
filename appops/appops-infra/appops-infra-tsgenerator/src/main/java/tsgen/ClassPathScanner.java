@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.pa.tsgen.scanner.ClasspathDiscoverer;
-import com.pa.tsgen.scanner.Discoverer;
-import com.pa.tsgen.scanner.listener.ClassAnnotationDiscoveryListener;
+import org.appops.scanner.ClasspathDiscoverer;
+import org.appops.scanner.Discoverer;
+import org.appops.scanner.listener.ClassAnnotationDiscoveryListener;
 
 public class ClassPathScanner {
 	

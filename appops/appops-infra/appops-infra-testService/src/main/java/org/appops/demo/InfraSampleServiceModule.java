@@ -1,8 +1,8 @@
 package org.appops.demo;
 
-import com.google.inject.AbstractModule;
+import org.appops.infra.core.annotations.ServiceModule;
 
-import pyramid.infra.core.annotations.ServiceModule;
+import com.google.inject.AbstractModule;
 
 @ServiceModule
 public class InfraSampleServiceModule extends AbstractModule {

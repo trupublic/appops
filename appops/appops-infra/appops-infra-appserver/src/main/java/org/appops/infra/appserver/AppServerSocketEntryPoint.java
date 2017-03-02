@@ -16,7 +16,7 @@ import org.appops.infra.dispatcher.InvocationDispatcher;
 import com.google.gson.Gson;
 
 
-public class AppServerEntryPoint {
+public class AppServerSocketEntryPoint {
 
 	private static ServerSocket serverSocket;
 	private static final int INCOMING_PORT = 1234;
@@ -24,23 +24,25 @@ public class AppServerEntryPoint {
 	private InvocationDispatcher invocationDispatcher;
 
 	@Inject
-	public AppServerEntryPoint(InvocationDispatcher dispatcher ) {
+	public AppServerSocketEntryPoint(InvocationDispatcher dispatcher ) {
 		isRunning = false;
 		invocationDispatcher = dispatcher ;
 	}
 
 	public void start(String[] args) {
-		if (!AppServerEntryPoint.isRunning) {
+		if (!AppServerSocketEntryPoint.isRunning) {
 			try {
-				AppServerEntryPoint.serverSocket = new ServerSocket(AppServerEntryPoint.INCOMING_PORT, 10,
+				AppServerSocketEntryPoint.serverSocket = new ServerSocket(AppServerSocketEntryPoint.INCOMING_PORT, 10,
 						InetAddress.getByName("localhost"));
-				AppServerEntryPoint.isRunning = true;
+				AppServerSocketEntryPoint.isRunning = true;
 				System.out.println("My app server is running on port number ----> " + INCOMING_PORT) ;
 				
-				while (AppServerEntryPoint.isRunning) {
+				while (AppServerSocketEntryPoint.isRunning) {
 					try (Socket connectedSocket = serverSocket.accept()) {
 						long startTime = System.nanoTime();
-						
+						/**
+						 * TODO : We need to dispatch the request processing to a thread in this case. 
+						 */
 						System.out.println("AS : Started - " + (System.nanoTime() - startTime) / 1000000);
 						System.out.println("My Server socket accepted client request ");
 
@@ -75,10 +77,10 @@ public class AppServerEntryPoint {
 	public void stop(String[] args) {
 		System.out.println("Stop service");
 
-		if (AppServerEntryPoint.isRunning) {
+		if (AppServerSocketEntryPoint.isRunning) {
 			try {
-				AppServerEntryPoint.serverSocket.close();
-				AppServerEntryPoint.isRunning = false;
+				AppServerSocketEntryPoint.serverSocket.close();
+				AppServerSocketEntryPoint.isRunning = false;
 			} catch (IOException e) {
 
 			}

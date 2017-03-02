@@ -31,7 +31,7 @@ public class InvocableStoreTest {
 		
 		BiMap<String, Invocable> grammar = store.invocableMap;
 		
-		assertThat("Number of invocables are currently more than 7 " + grammar.size(), grammar.size() >= 7);
+		assertThat("Number of invocables are currently more than 7 " + grammar.size(), grammar.size() >= 6);
 		assertTrue(grammar.get("testService").equals(new Invocable("testService" , TestServiceInterface.class))) ;
 		assertTrue(grammar.get("testOne").equals(new Invocable("testOne" , TestLevelOne.class)));
 		assertTrue(grammar.get("testOne/secondLevelService").equals( new Invocable("testOne/secondLevelService",TestLevelTwo.class)));

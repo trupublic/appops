@@ -1,0 +1,3 @@
+{
+    "typescript.tsdk": "${workspaceRoot}\\node_modules\\typescript\\bin"
+}

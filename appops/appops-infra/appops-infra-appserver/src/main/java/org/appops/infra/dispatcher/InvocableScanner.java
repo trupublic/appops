@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.util.Set;
 
 import org.appops.infra.core.annotations.Service;
-
-import com.pa.tsgen.scanner.AnnotatedClassScanner;
+import org.appops.scanner.AnnotatedClassScanner;
 
 public class InvocableScanner {
 	

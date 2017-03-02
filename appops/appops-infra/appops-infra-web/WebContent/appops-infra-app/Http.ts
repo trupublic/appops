@@ -51,7 +51,7 @@ module Http {
           access the base href value set in html page
         */
         private getRequestUri() {
-            return document.getElementsByTagName('base')[0].href + "/infraEntryPoint" + '?q=' + this.getQueryString();
+            return document.getElementsByTagName('base')[0].href + "infraEntryPoint" + '?q=' + this.getQueryString();
         }
 
         get(): void {

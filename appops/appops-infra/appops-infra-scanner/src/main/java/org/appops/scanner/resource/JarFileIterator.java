@@ -10,6 +10,11 @@ import java.util.jar.JarInputStream;
 
 import org.appops.scanner.Filter;
 
+/**
+ * Can iterate a Jar file and return each class inside as an InputStream
+ * @author Debasish Gautam Anand
+ *
+ */
 public final class JarFileIterator implements ResourceIterator {
 
     /** jar input stream */

@@ -1,0 +1,48 @@
+{
+  "name": "trupublic-signup",
+  "version": "1.0.0",
+  "description": "trupublic signup package",
+  "scripts": {
+    "clean": "rimraf js/**/*.js js/**/*.js.map",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "prestart": "npm run clean",
+    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "dev": "lite-server"
+  },
+  "author": "",
+  "dependencies": {
+    "@angular/common": "~2.4.0",
+    "@angular/compiler": "~2.4.0",
+    "@angular/core": "~2.4.0",
+    "@angular/forms": "~2.4.0",
+    "@angular/http": "~2.4.0",
+    "@angular/platform-browser": "~2.4.0",
+    "@angular/platform-browser-dynamic": "~2.4.0",
+    "@angular/router": "~3.4.0",
+    "angular-in-memory-web-api": "~0.2.4",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "*",
+    "rxjs": "5.0.1",
+    "systemjs": "0.19.40",
+    "zone.js": "^0.7.4"
+  },
+  "devDependencies": {
+    "@types/core-js": "^0.9.34",
+    "@types/node": "^6.0.41",
+    "concurrently": "2.2.0",
+    "gulp": "3.9.1",
+    "gulp-live-server": "*",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-typescript": "*",
+    "gulp-util": "^3.0.8",
+    "gulp-webserver": "^0.9.1",
+    "lite-server": "2.2.2",
+    "merge2": "*",
+    "rimraf": "2.5.4",
+    "task-gulp-clean": "0.0.1",
+    "typescript": "2.0.2"
+  }
+}

@@ -1,14 +1,14 @@
 package org.appops.infra.benchmarking;
 
+import org.appops.infra.core.annotations.ServiceModule;
+import org.appops.infra.core.provision.Benchmarked;
+import org.appops.infra.core.provision.DevelopmentImpl;
+import org.appops.infra.core.provision.NoopImpl;
+import org.appops.infra.core.provision.ProductionImpl;
+
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
 import com.google.inject.matcher.Matchers;
-
-import pyramid.infra.core.annotations.ServiceModule;
-import pyramid.infra.core.provision.Benchmarked;
-import pyramid.infra.core.provision.DevelopmentImpl;
-import pyramid.infra.core.provision.NoopImpl;
-import pyramid.infra.core.provision.ProductionImpl;
 
 @ServiceModule
 public class BenchmarkingModule extends AbstractModule {

@@ -1,6 +1,7 @@
 package org.appops.scanner;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,8 +25,18 @@ public class AnnotatedClassScanner {
 	 * @throws IOException
 	 */
 	
+	private String[] paths = null ;
+	private URL[] toScan = null ;
+	
 	public Set<Class<?>> getClassesAnnotatedWith(Class<?> t) throws IOException{
-		Discoverer discoverer = new ClasspathDiscoverer();
+	
+		Discoverer discoverer = null;
+		
+		if (toScan != null){
+			discoverer = new ClasspathDiscoverer(toScan);
+		}else
+			discoverer = new ClasspathDiscoverer(paths, true);
+		
 		AnnotatedTypeDiscoveryListener listener = new AnnotatedTypeDiscoveryListener(new String[] {t.getCanonicalName()});
 		discoverer.addAnnotationListener(listener);
 		discoverer.discover();
@@ -33,7 +44,7 @@ public class AnnotatedClassScanner {
 	}
 	
 	public Set<Class<?>> getInterfacesAnnotatedWith(Class<?> t) throws IOException{
-		Discoverer discoverer = new ClasspathDiscoverer();
+		Discoverer discoverer = new ClasspathDiscoverer(paths, true);
 		AnnotatedTypeDiscoveryListener listener = new AnnotatedInterfaceDiscoveryListener(new String[] {t.getCanonicalName()});
 		discoverer.addAnnotationListener(listener);
 		discoverer.discover();
@@ -97,5 +108,14 @@ public class AnnotatedClassScanner {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public void setPathsToScan(String[] path) {
+		paths = path ;
+	}
+
+	public void setUrlsToScan(URL[] urlsToScan) {
+		toScan = urlsToScan ;
+		
 	}
 }

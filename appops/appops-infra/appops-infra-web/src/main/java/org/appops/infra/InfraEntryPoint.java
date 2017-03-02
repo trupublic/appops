@@ -10,21 +10,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class InfraEntryPoint
+ * Servlet implementation class InfraEntryPoint. Use this class when you want to use a standalone app server and you want to connect to it 
+ * remotely using sockets 
  */
-@WebServlet("/infraEntryPoint/*")
+//@WebServlet("/infraEntryPoint/*")
 public class InfraEntryPoint extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String SERVER_IP = "localhost";
 	private static final int SERVER_PORT = 1234;
 
-	private static Logger logger = Logger.getLogger("pyramidLogger");
+	private static Logger logger = Logger.getLogger(InfraEntryPoint.class.getCanonicalName());
 
 	/**
 	 * @see HttpServlet#HttpServlet()

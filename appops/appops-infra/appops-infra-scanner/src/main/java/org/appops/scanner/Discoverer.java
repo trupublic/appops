@@ -124,6 +124,7 @@ public abstract class Discoverer {
         URL[] resources = findResources();
 		DataInputStream dstream;
 		ClassFile classFile;
+		
 		for (URL resource : resources) {
 			try {
                 ResourceIterator itr = getResourceIterator(resource, getFilter());
@@ -132,6 +133,7 @@ public abstract class Discoverer {
                 while ((is = itr.next()) != null) {
                 	// make a data input stream
                 	dstream = new DataInputStream(new BufferedInputStream(is));
+                	System.err.println(resource.getFile());
                     try {
                     	// get java-assist class file
                     	classFile = new ClassFile(dstream);
@@ -148,7 +150,7 @@ public abstract class Discoverer {
                     }
                 }
             } catch (IOException e) {
-                // TODO: Do something with this exception
+                
                 e.printStackTrace();
             }
         }
@@ -267,6 +269,8 @@ public abstract class Discoverer {
     /**
      * Gets the Resource iterator for URL with Filter.
      * 
+     * Returns a ClassFileIterator if the encountered URL is a folder else returns a JarFileIterator
+     * 
      * @param url
      * @param filter
      * @return
@@ -284,11 +288,12 @@ public abstract class Discoverer {
             return new JarFileIterator(url.openStream(), filter);
         } else {
 
-            if (!url.getProtocol().equals("file")) {
+        	if (!url.getProtocol().equals("file")) {
                 throw new IOException("Unable to understand protocol: " + url.getProtocol());
             }
 
             File f = new File(url.getPath());
+            
             if (f.isDirectory()) {
                 return new ClassFileIterator(f, filter);
             } else {

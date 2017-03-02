@@ -22,12 +22,12 @@
 			<version>2.0</version>
 			<scope>provided</scope>
 		</dependency>
-	<!-- 	<dependency>
-			<groupId>taglibs</groupId>
-			<artifactId>standard</artifactId>
-			<version>1.1.2</version>
-			<scope>runtime</scope>
-		</dependency> -->
+
+		<dependency>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-servlet</artifactId>
+			<version>4.0</version>
+		</dependency>
 
 		<dependency>
 			<groupId>log4j</groupId>
@@ -37,15 +37,13 @@
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
-			<version>2.5</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- Shiro dependencies -->
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
@@ -102,10 +100,25 @@
 			<version>1.2</version>
 			<scope>runtime</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>21.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.appops</groupId>
+			<artifactId>appops-infra-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.appops</groupId>
+			<artifactId>appops-infra-appserver</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
+
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -117,34 +130,6 @@
 			</plugin>
 
 			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.3-SNAPSHOT</version>
-				<!-- <configuration> <server>myserver</server> </configuration> -->
-			</plugin>
-			        <plugin>
-            <groupId>org.mortbay.jetty</groupId>
-            <artifactId>maven-jetty-plugin</artifactId>
-            <version>6.1.26</version>
-            <configuration>
-                <contextPath>/</contextPath>
-                <connectors>
-                    <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-                        <port>8080</port>
-                        <maxIdleTime>60000</maxIdleTime>
-                    </connector>
-                </connectors>
-                <requestLog implementation="org.mortbay.jetty.NCSARequestLog">
-                    <filename>./target/yyyy_mm_dd.request.log</filename>
-                    <retainDays>90</retainDays>
-                    <append>true</append>
-                    <extended>false</extended>
-                    <logTimeZone>GMT</logTimeZone>
-                </requestLog>
-            </configuration>
-        </plugin>
-			
-			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.6</version>
 				<configuration>
@@ -153,6 +138,38 @@
 				</configuration>
 			</plugin>
 
+
+			<!-- jetty configuration -->
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.4.0.v20161208</version>
+				<configuration>
+					<webapp>
+						<contextPath>/</contextPath>
+					</webapp>
+					<webAppSourceDirectory>${project.basedir}/WebContent</webAppSourceDirectory>
+					<stopWait>10</stopWait>
+					<connectors>
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>8080</port>
+							<maxIdleTime>60000</maxIdleTime>
+						</connector>
+					</connectors>
+
+					<dependencies>
+						<dependency>
+							<groupId>ch.qos.logback</groupId>
+							<artifactId>logback-classic</artifactId>
+							<version>0.9.29</version>
+						</dependency>
+					</dependencies>
+					<!-- <requestLog implementation="org.mortbay.jetty.NCSARequestLog"> 
+						<filename>./target/yyyy_mm_dd.request.log</filename> <retainDays>90</retainDays> 
+						<append>true</append> <extended>false</extended> <logTimeZone>GMT</logTimeZone> 
+						</requestLog> -->
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>

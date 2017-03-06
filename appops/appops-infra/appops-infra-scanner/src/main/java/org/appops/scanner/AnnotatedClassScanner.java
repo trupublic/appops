@@ -44,7 +44,14 @@ public class AnnotatedClassScanner {
 	}
 	
 	public Set<Class<?>> getInterfacesAnnotatedWith(Class<?> t) throws IOException{
-		Discoverer discoverer = new ClasspathDiscoverer(paths, true);
+		
+		Discoverer discoverer = null;
+		
+		if (toScan != null){
+			discoverer = new ClasspathDiscoverer(toScan);
+		}else
+			discoverer = new ClasspathDiscoverer(paths, true);
+
 		AnnotatedTypeDiscoveryListener listener = new AnnotatedInterfaceDiscoveryListener(new String[] {t.getCanonicalName()});
 		discoverer.addAnnotationListener(listener);
 		discoverer.discover();

@@ -40,8 +40,11 @@ public class AppOpsServletContextListener extends GuiceServletContextListener {
 			Injector injector = Guice.createInjector(moduleSet);
 			
 			InvocableStore store = injector.getInstance(InvocableStore.class);
+			
 			store.setUrlsToScan(urlsToScan);
+			
 			store.buildServiceGrammar();
+			
 			return injector;
 
 		} catch (InstantiationException e) {

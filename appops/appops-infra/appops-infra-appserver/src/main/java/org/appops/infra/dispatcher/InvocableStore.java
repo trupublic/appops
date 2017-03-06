@@ -2,6 +2,7 @@ package org.appops.infra.dispatcher;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
+import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
@@ -17,6 +18,8 @@ import com.google.common.collect.HashBiMap;
 public class InvocableStore {
 
 	public BiMap<String, Invocable> invocableMap = HashBiMap.create();
+
+	private URL[] urlsToScan;
 	
 	private static Logger logger = Logger.getLogger(InvocableStore.class.getName()) ;
 	
@@ -27,7 +30,7 @@ public class InvocableStore {
 		
 		InvocableScanner scanner = new InvocableScanner();
 		
-		Set<Class<?>> interfaces = scanner.getServiceInterfaceSet();
+		Set<Class<?>> interfaces = scanner.getServiceInterfaceSet(urlsToScan);
 		
 		processServiceInterfaceSet(interfaces);
 	}
@@ -125,6 +128,11 @@ public class InvocableStore {
 	
 	public Invocable getInvocable(String name){
 		return invocableMap.get(name);
+	}
+
+	public void setUrlsToScan(URL[] urlsToScan) {
+		this.urlsToScan = urlsToScan ;
+		
 	}
 
 }

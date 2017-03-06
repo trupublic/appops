@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.appops.infra.core.AppOpsAppStarter;
+import org.appops.infra.dispatcher.InvocableStore;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -18,25 +19,30 @@ public class AppOpsServletContextListener extends GuiceServletContextListener {
 
 	private static Logger logger = Logger.getLogger(AppOpsServletContextListener.class.getCanonicalName());
 
-	private URL[] urlsToScan = null ;
-	
+	private URL[] urlsToScan = null;
+
 	@Override
 	protected Injector getInjector() {
 
-		URLClassLoader classLoader = (URLClassLoader)this.getClass().getClassLoader();
+		URLClassLoader classLoader = (URLClassLoader) this.getClass().getClassLoader();
 		urlsToScan = classLoader.getURLs();
-		
-		for (URL url : urlsToScan){
-			logger.log(Level.WARNING, "tomcat classloader url - " +url.toExternalForm());
+
+		for (URL url : urlsToScan) {
+			logger.log(Level.WARNING, "tomcat classloader url - " + url.toExternalForm());
 		}
-		
+
 		try {
 
 			Set<Module> moduleSet = AppOpsAppStarter.getApplicationModules(urlsToScan);
 
 			moduleSet.add(new InfraWebAppModule());
 
-			return Guice.createInjector(moduleSet);
+			Injector injector = Guice.createInjector(moduleSet);
+			
+			InvocableStore store = injector.getInstance(InvocableStore.class);
+			store.setUrlsToScan(urlsToScan);
+			store.buildServiceGrammar();
+			return injector;
 
 		} catch (InstantiationException e) {
 			logger.log(Level.SEVERE, "Couldn't instantiate application modules while trying to create injector", e);
@@ -45,7 +51,7 @@ public class AppOpsServletContextListener extends GuiceServletContextListener {
 		} catch (IOException e) {
 			logger.log(Level.SEVERE, "Couldn't locate application modules while trying to create injector", e);
 		}
-		
-		return null ;
+
+		return null;
 	}
 }

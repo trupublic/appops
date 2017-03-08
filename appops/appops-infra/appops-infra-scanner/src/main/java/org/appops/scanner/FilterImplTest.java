@@ -19,9 +19,9 @@ public class FilterImplTest {
 
 	@Test
 	public void ignoreScanTest() {
+		FilterImpl filter = new FilterImpl();
 		String packagename1 = "java.";
 		String packagename2 = "in.com";
-		FilterImpl filter = new FilterImpl();
 		assertTrue(filter.ignoreScan(packagename2));
 	}
 

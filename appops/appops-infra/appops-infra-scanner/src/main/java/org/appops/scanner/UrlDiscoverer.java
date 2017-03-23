@@ -61,6 +61,7 @@ public class UrlDiscoverer extends Discoverer {
 	 * This method returns the array of URLs.This method checks whether the URL
 	 * is pointing to the folder or file and accordingly returns URLs.
 	 */
+	
 	@Override
 	public URL[] findResources() {
 

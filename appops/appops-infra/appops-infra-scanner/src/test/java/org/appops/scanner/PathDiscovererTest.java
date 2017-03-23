@@ -10,8 +10,9 @@ import org.junit.Test;
 public class PathDiscovererTest {
 
 	/*
-	 * This method scans the folder containing .class files
+	 * Scans  folder containing .class files
 	 */
+	
 	@Test
 	public void classFilesPathTest() {
 		URL[] classUrls;

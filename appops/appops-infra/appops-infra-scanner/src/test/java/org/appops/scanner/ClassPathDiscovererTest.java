@@ -2,7 +2,10 @@ package org.appops.scanner;
 
 import static org.junit.Assert.*;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -16,7 +19,7 @@ import org.junit.Test;
 /**
  * 
  * 
- *This Class checks if the url exists in the java.class.path
+ * This Class checks if the url exists in the java.class.path
  */
 
 public class ClassPathDiscovererTest {
@@ -27,94 +30,49 @@ public class ClassPathDiscovererTest {
 		URL[] urls;
 
 		List<URL> list = new ArrayList<URL>();
+		URL[] ur = new URL[2];
 
-		URL url1 = new URL("file:/home/iternia/git/appops/appops/appops-infra/appops-infra-scanner/target/classes/");
+		// gets a relative path of a particluar file
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource("result-jar/a.jar").getFile());
+		File file1 = new File(classLoader.getResource("result-class/").getFile());
 
-		URL url2 = new URL("file:/home/iternia/Downloads/maven3/conf/logging/");
+		ur[0] = file.toURI().toURL();
+		ur[1] = file1.toURI().toURL();
 
 		ClasspathDiscoverer path = new ClasspathDiscoverer();
-
-		String classpath = System.getProperty("java.classpath");
-		String classpath1 = System.getProperty("java.class.path");
-
-		assertTrue(classpath == null);
-		assertTrue(classpath1 != null);
-
-		StringTokenizer token = new StringTokenizer(classpath1, File.pathSeparator);
-
 		urls = path.findResources();
 
 		assertTrue(urls != null);
+		for (URL url : urls) {
 
-		// Valid url name in java.class.path
-		assertTrue(findEqualsUrl(urls, url1));
+			// checks if the given url ends with .jar
+			if (url.toString().endsWith(".jar")) {
+				assertTrue(url.toString().endsWith(".jar"));
 
-		// Invalid url name in java.class.path
-		assertFalse(findEqualsUrl(urls, url2));
+				// checks if the Url is not equal
+				assertNotEquals(url, ur[0]);
 
-	}
-
-	@Test
-	public void getUrlListTokensTest() throws MalformedURLException {
-
-		List<URL> urlList = new ArrayList<URL>();
-
-		ClasspathDiscoverer path = new ClasspathDiscoverer();
-
-		URL url1 = new URL(
-				"file:/home/iternia/.m2/repository/org/javassist/javassist/3.19.0-GA/javassist-3.19.0-GA.jar");
-
-		URL url2 = new URL("file:/home/iternia/Downloads/maven3/conf/logging/");
-
-		String classpath = System.getProperty("java.class.path");
-
-		StringTokenizer tokenizer = new StringTokenizer(classpath, File.pathSeparator);
-
-		urlList = path.getUrlListFromTokenizer(tokenizer);
-
-		// Valid url name in java.class.path
-		assertTrue(findEqualsList(urlList, url1));
-
-		// InValid url name in java.class.path
-		assertFalse(findEqualsList(urlList, url2));
-	}
-
-	/**
-	 * 
-	 * @param urls-list
-	 *            of urls
-	 * @param url-actual
-	 *            url to be compared
-	 * @return-returns true or false
-	 */
-
-	public boolean findEqualsUrl(URL[] urls, URL url) {
-
-		for (URL ur : urls) {
-			if (ur.equals(url)) {
-				return true;
+				// checks if the Url is equal
+				assertEquals(url, ur[0]);
 			}
-		}
-		return false;
-	}
 
-	/**
-	 * 
-	 * @param urls-list
-	 *            of urls
-	 * @param url-actual
-	 *            url to be compared
-	 * @return-returns true or false
-	 */
+			// checks if the given url is a class folder
+			if (url.toString().endsWith("/")) {
+				
+				//checks if the url is not equal
+				assertNotEquals(url,ur[1]);
 
-	public boolean findEqualsList(List<URL> urls, URL url) {
+				//checks if the url is equal
+				assertEquals(url,ur[1]);
+				
+				
+				assertTrue(url.toString().endsWith("/"));
 
-		for (URL ur : urls) {
-			if (ur.equals(url)) {
-				return true;
 			}
+
 		}
-		return false;
+
 	}
 
 }

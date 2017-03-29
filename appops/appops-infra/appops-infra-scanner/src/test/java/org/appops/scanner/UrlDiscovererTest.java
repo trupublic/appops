@@ -82,6 +82,7 @@ public class UrlDiscovererTest {
 		 * files from that folder.
 		 */
 
+		
 		/*
 		 * folder[0]=new File(loader.getResource("com/assets/").getFile());
 		 * URL[] urlFolder=new URL[1]; urlFolder[0]=folder[0].toURI().toURL();

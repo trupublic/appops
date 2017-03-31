@@ -4,47 +4,37 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 import java.net.URL;
+import java.util.StringTokenizer;
 
 import org.junit.Test;
 
 public class PathDiscovererTest {
 
 	/*
-	 * Scans  folder containing .class files
+	 * Scans the folder path containing .class files
 	 */
-	
+
 	@Test
 	public void classFilesPathTest() {
-		URL[] classUrls;
 
+		URL[] classUrls = new URL[2];
+
+		// Used to load a classes at runtime
 		ClassLoader classLoader = getClass().getClassLoader();
 
-		// gets the relative folder path of the folders containing .class files
-		File file1 = new File(classLoader.getResource("result-class/").getPath());
+		// gets the relative path of the folder containing class files
+		File file = new File(classLoader.getResource("result-class/").getPath());
+		File file1 = new File(classLoader.getResource("result-class1/").getPath());
 
-		// gets all the files
-		File[] classFiles = file1.listFiles();
-		assertTrue(classFiles != null);
+		String[] str = new String[2];
+		str[0] = file.toString();
+		str[1] = file1.toString();
 
-		// checks if all files ends with .class
-		for (File f1 : classFiles) {
-			assertTrue(f1.getName().endsWith(".class"));
-		}
+		PathDiscoverer pathname = new PathDiscoverer(str, true);
 
-		String[] classNames = new String[classFiles.length];
-		for (int i = 0; i < classFiles.length; i++) {
-			classNames[i] = classFiles[i].getPath();
-		}
+		classUrls = pathname.findResources();
 
-		PathDiscoverer path1 = new PathDiscoverer(classNames, true);
-
-		classUrls = path1.findResources();
-
-		for (URL url : classUrls) {
-
-			assertTrue(url.toString().endsWith(".class"));
-
-		}
+		assertTrue(classUrls != null);
 
 	}
 
@@ -53,71 +43,48 @@ public class PathDiscovererTest {
 	 */
 	@Test
 	public void jarFilesPathTest() {
-		URL[] jarUrls;
+		URL[] jarUrls = new URL[2];
 
 		ClassLoader classLoader = getClass().getClassLoader();
+
 		// gets the relative folder path of the folder containing .jar files
-		File file2 = new File(classLoader.getResource("result-jar/").getPath());
+		File file1 = new File(classLoader.getResource("result-jar/").getPath());
+		File file2 = new File(classLoader.getResource("result-jar1/").getPath());
 
-		// gets all the files
-		File[] jarFiles = file2.listFiles();
-		assertTrue(jarFiles != null);
+		String[] str = new String[2];
+		str[0] = file1.toString();
+		str[1] = file2.toString();
 
-		// checks if all files ends with .jar
-		for (File f1 : jarFiles) {
-			assertTrue(f1.getName().endsWith(".jar"));
-		}
+		PathDiscoverer pathname = new PathDiscoverer(str, true);
 
-		String[] jarNames = new String[jarFiles.length];
-		for (int i = 0; i < jarFiles.length; i++) {
-			jarNames[i] = jarFiles[i].getPath();
-		}
+		jarUrls = pathname.findResources();
 
-		PathDiscoverer path2 = new PathDiscoverer(jarNames, true);
-
-		jarUrls = path2.findResources();
-		for (URL url : jarUrls) {
-			assertTrue(url.toString().endsWith(".jar"));
-		}
+		assertTrue(jarUrls != null);
 
 	}
 
 	/**
-	 * This method scans the folder containing .class or .jar files 
+	 * This method scans the folder containing .class and .jar files
 	 */
 	@Test
 	public void classJarFilesPathTest() {
 
-		URL[] jarClassUrls;
-
+		URL[] jarClassUrls = new URL[2];
 		ClassLoader classLoader = getClass().getClassLoader();
-		
-		
-		// gets the relative folder path of the folder containing .class and .jar files
-		File file3 = new File(classLoader.getResource("result-class-jar/").getPath());
 
-		// gets all files
-		File[] classJarFiles = file3.listFiles();
-		assertTrue(classJarFiles != null);
+		// gets the relative path of the folder
+		File file1 = new File(classLoader.getResource("result-class-jar/").getPath());
+		File file2 = new File(classLoader.getResource("result-class-jar1/").getPath());
 
-		// checks if all files ends with .class or .jar
-		for (File f1 : classJarFiles) {
-			assertTrue(f1.getName().endsWith(".class") || f1.getName().endsWith(".jar"));
-		}
+		String[] str = new String[2];
+		str[0] = file1.toString();
+		str[1] = file2.toString();
 
-		String[] classJarNames = new String[classJarFiles.length];
-		for (int i = 0; i < classJarFiles.length; i++) {
-			classJarNames[i] = classJarFiles[i].getPath();
+		PathDiscoverer discover = new PathDiscoverer(str, true);
 
-		}
+		jarClassUrls = discover.findResources();
 
-		PathDiscoverer path3 = new PathDiscoverer(classJarNames, true);
-
-		jarClassUrls = path3.findResources();
-
-		for (URL url : jarClassUrls) {
-			assertTrue(url.toString().endsWith(".class") || url.toString().endsWith(".jar"));
-		}
+		assertTrue(jarClassUrls != null);
 
 	}
 

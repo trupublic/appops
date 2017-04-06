@@ -37,15 +37,15 @@ public class TypeScriptGenerator {
 		String genPath ;
 		String moduleName ; 
 
-		if (args[0] == null || args[0].isEmpty())
-			throw new IOException("Java to TypeScript generation path cannot be null or empty") ;
-		else  
+		if (args[0] != null && !args[0].isEmpty())
 			genPath = args[0];
-
-		if (args[1] == null || args[1].isEmpty())
-			throw new IOException("Java to TypeScript generation module name cannot be null or empty") ;
 		else  
+			throw new IOException("Java to TypeScript generation path cannot be null or empty") ;
+
+		if (args[1] != null && !args[1].isEmpty())
 			moduleName = args[1] ;
+		else  
+			throw new IOException("Java to TypeScript generation module name cannot be null or empty") ;
 		
 		Class<?> antClass = null, serviceAnnotationClass = null ;
 

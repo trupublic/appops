@@ -2,7 +2,9 @@ package tsgen;
 
 import static org.junit.Assert.*;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 
 import org.junit.After;
@@ -12,17 +14,9 @@ import org.junit.Test;
 
 public class TypeScriptGeneratorTest {
 
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
 	@Test
 	public void test() throws IOException {
-		
+
 		/**
 		 * 	Checks for thrown Exception is IOException
 		 * 	Checks for required Exception Error Message which is thrown if First argument to main() is empty.  
@@ -49,7 +43,6 @@ public class TypeScriptGeneratorTest {
 		 * Creates a type Script file and Checks the generated file is created or not.
 		 * */
 		TypeScriptGenerator.main(new String[]{".\\","JunitTestModule"});
-
 		String resultFile = null;
 		File fileDirectory = new File("/home/iternia/git/appops/appops/appops-infra/appops-infra-tsgenerator/");
 		File[] allFiles = fileDirectory.listFiles();
@@ -58,5 +51,31 @@ public class TypeScriptGeneratorTest {
 				resultFile = files.getName();
 
 		assertEquals(".\\JunitTestModule.d.ts", resultFile);
+
+		/**
+		 * Checks for the content of the file for expected methods from TestClass.java
+		 * Also checks for a non-expected method for false condition.
+		 * */
+		assertTrue("Checking file content for sayHello()",testContent(resultFile, "sayHello()"));
+		assertTrue("Checking file content for sayBye()",testContent(resultFile, "sayBye()"));
+		assertFalse("Checking file content for sayNothing()",testContent(resultFile, "sayNothing()"));
+
+
+	}
+	
+	/**
+	 * @param resultFile : Type Script Generated file name
+	 * 		  methodName : Method name as content which is expected or unexpected in the TypeScript File
+	 * @return true if content matches 
+	 * 		   false if content does not match
+	 * */
+	public boolean testContent(String resultFile, String methodName) throws IOException{
+		String nextLine;
+		BufferedReader inputReader = new BufferedReader(new FileReader(resultFile));
+		while ((nextLine = inputReader.readLine()) != null){
+			if(nextLine.contains(methodName)) 		    
+				return true;
+		}
+		return false;
 	}
 }

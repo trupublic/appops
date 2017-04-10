@@ -47,11 +47,6 @@ public class ClasspathDiscoverer extends Discoverer {
 		arrayPath = paths;
 	}
 
-	/*public ClasspathDiscoverer(URL[] urls) {
-		externalUrls = urls;
-		filter = new FilterImpl();
-	}*/
-
 	/**
 	 * Uses java.class.path system-property to fetch URLs
 	 * 

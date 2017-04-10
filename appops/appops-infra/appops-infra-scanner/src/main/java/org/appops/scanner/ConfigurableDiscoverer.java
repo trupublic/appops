@@ -2,6 +2,7 @@ package org.appops.scanner;
 
 import java.net.URL;
 
+
 public class ConfigurableDiscoverer extends Discoverer {
 
 	boolean classPath = false, path = false, url = false;

@@ -1,13 +1,7 @@
 package org.appops.scanner;
 
-import java.awt.List;
 import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.net.URLClassLoader;
-import java.util.ArrayList;
 
 public class UrlDiscoverer extends Discoverer {
 
@@ -65,15 +59,9 @@ public class UrlDiscoverer extends Discoverer {
 	public URL[] findResources() {
 
 		if (url != null)
-			/*
-			 * for(URL urls:url){ if(urls.toString().endsWith("/")){
-			 * urlFolder(urls.toString()); }
-			 */
 			return url;
 
 		else
 			return null;
-
 	}
-
 }

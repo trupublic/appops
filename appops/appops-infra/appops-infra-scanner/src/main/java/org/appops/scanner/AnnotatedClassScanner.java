@@ -33,9 +33,10 @@ public class AnnotatedClassScanner {
 		Discoverer discoverer = null;
 		
 		if (toScan != null){
-			discoverer = new ClasspathDiscoverer(toScan);
+			/*discoverer = new ClasspathDiscoverer(toScan);*/
+			discoverer = new ConfigurableDiscoverer(toScan);
 		}else
-			discoverer = new ClasspathDiscoverer(paths, true);
+			discoverer = new ConfigurableDiscoverer(paths, true);
 		
 		AnnotatedTypeDiscoveryListener listener = new AnnotatedTypeDiscoveryListener(new String[] {t.getCanonicalName()});
 		discoverer.addAnnotationListener(listener);
@@ -48,9 +49,10 @@ public class AnnotatedClassScanner {
 		Discoverer discoverer = null;
 		
 		if (toScan != null){
-			discoverer = new ClasspathDiscoverer(toScan);
+			/*discoverer = new ClasspathDiscoverer(toScan);*/
+			discoverer = new ConfigurableDiscoverer(toScan);
 		}else
-			discoverer = new ClasspathDiscoverer(paths, true);
+			discoverer = new ConfigurableDiscoverer(paths, true);
 
 		AnnotatedTypeDiscoveryListener listener = new AnnotatedInterfaceDiscoveryListener(new String[] {t.getCanonicalName()});
 		discoverer.addAnnotationListener(listener);

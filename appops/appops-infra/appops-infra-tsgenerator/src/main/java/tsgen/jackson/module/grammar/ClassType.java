@@ -23,6 +23,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import tsgen.GetCallbackProperty;
 import tsgen.jackson.module.grammar.base.AbstractNamedType;
 import tsgen.jackson.module.grammar.base.AbstractType;
 import tsgen.jackson.module.writer.WriterPreferences;
@@ -35,6 +36,8 @@ public class ClassType extends AbstractNamedType {
 
 	static private ClassType objectType = new ClassType("Object");
 
+	GetCallbackProperty getCallbackProperty = new GetCallbackProperty();
+	
 	/** Root Object class */
 	static public ClassType getObjectClass() {
 		return objectType;
@@ -46,7 +49,7 @@ public class ClassType extends AbstractNamedType {
 
 	@Override
 	public void writeDefInternal(Writer writer, WriterPreferences preferences) throws IOException {
-		writer.write(format("interface %s {\n", name));
+		writer.write(format("interface %s "+getCallbackProperty.getReturnType()+"{\n", name));
 		preferences.increaseIndentation();
 		for (Entry<String, AbstractType> entry : fields.entrySet()) {
 			writer.write(format("%s%s: ", preferences.getIndentation(), entry.getKey()));

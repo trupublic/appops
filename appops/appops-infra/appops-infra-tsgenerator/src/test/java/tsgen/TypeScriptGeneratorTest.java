@@ -1,14 +1,14 @@
 package tsgen;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 
@@ -56,11 +56,9 @@ public class TypeScriptGeneratorTest {
 		 * Checks for the content of the file for expected methods from TestClass.java
 		 * Also checks for a non-expected method for false condition.
 		 * */
-		assertTrue("Checking file content for sayHello()",testContent(resultFile, "sayHello()"));
-		assertTrue("Checking file content for sayBye()",testContent(resultFile, "sayBye()"));
+		assertTrue("Checking file content for sayHello()",testContent(resultFile, "sayHello"));
+		assertTrue("Checking file content for sayBye()",testContent(resultFile, "sayBye"));
 		assertFalse("Checking file content for sayNothing()",testContent(resultFile, "sayNothing()"));
-
-
 	}
 	
 	/**

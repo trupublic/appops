@@ -20,6 +20,7 @@ import java.io.Writer;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 
+import tsgen.GetCallbackProperty;
 import tsgen.jackson.module.grammar.base.AbstractType;
 
 public class FunctionType extends AbstractType {
@@ -28,6 +29,8 @@ public class FunctionType extends AbstractType {
 
 	private AbstractType resultType;
 
+	GetCallbackProperty getCallbackProperty = new GetCallbackProperty();
+	
 	/** By default, printed as lambda function type (with =>) */
 	@Override
 	public void write(Writer writer) throws IOException {
@@ -46,11 +49,12 @@ public class FunctionType extends AbstractType {
 			writer.write(entry.getKey());
 			writer.write(": ");
 			entry.getValue().write(writer);
-			if (i < parameters.size()) {
+			if (i < parameters.size()+1) {
 				writer.write(", ");
 			}
 			i++;
 		}
+		writer.write(getCallbackProperty.getParameter());
 		writer.write(")" + (lambdaSyntax ? "=> " : ": "));
 		resultType.write(writer);
 	}

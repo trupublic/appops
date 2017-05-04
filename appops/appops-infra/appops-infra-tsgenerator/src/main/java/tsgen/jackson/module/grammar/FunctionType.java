@@ -20,6 +20,7 @@ import java.io.Writer;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 
+import tsgen.GetCallBackProperty;
 import tsgen.jackson.module.grammar.base.AbstractType;
 
 public class FunctionType extends AbstractType {
@@ -51,6 +52,9 @@ public class FunctionType extends AbstractType {
 			}
 			i++;
 		}
+		
+		GetCallBackProperty getProperty=new GetCallBackProperty();
+		writer.write(getProperty.getParameter());
 		writer.write(")" + (lambdaSyntax ? "=> " : ": "));
 		resultType.write(writer);
 	}

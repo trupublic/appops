@@ -11,29 +11,20 @@ import java.util.StringTokenizer;
 import com.google.common.base.Preconditions;
 
 /**
- * This class is responsible for locating all class files on the path specified
- * and returning them as an array of URLs
+ * This class is responsible for locating all class files on the path specified and returning them as an array of URLs
+ * It can accept three types of parameters to decide how to locate resources. If an array of URL's pointing to folders
+ * or jar's are provided it takes first precendence and other two options are not used If array of URL's are null it
+ * uses the array of strings that should contain path elements to scan. If both the above are null it tries to retrieve
+ * java.classpath system property. If this property is null it uses java.class.path property
  * 
- * It can accept three types of parameters to decide how to locate resources.
- * 
- * If an array of URL's pointing to folders or jar's are provided it takes first
- * precendence and other two options are not used
- * 
- * If array of URL's are null it uses the array of strings that should contain
- * path elements to scan.
- * 
- * If both the above are null it tries to retrieve java.classpath system
- * property. If this property is null it uses java.class.path property
- 
  * @author Debasish Gautam Anand
- *
  */
 public class ClasspathDiscoverer extends Discoverer {
 
 	/** The filter. */
-	private Filter filter;
-	private String[] arrayPath;
-	private URL[] externalUrls;
+	private Filter		filter;
+	private String[]	arrayPath;
+	private URL[]		externalUrls;
 
 	/**
 	 * Instantiates a new classpath reader.
@@ -47,10 +38,9 @@ public class ClasspathDiscoverer extends Discoverer {
 		arrayPath = paths;
 	}
 
-	public ClasspathDiscoverer(URL[] urls) {
-		externalUrls = urls;
-		filter = new FilterImpl();
-	}
+	/*
+	 * public ClasspathDiscoverer(URL[] urls) { externalUrls = urls; filter = new FilterImpl(); }
+	 */
 
 	/**
 	 * Uses java.class.path system-property to fetch URLs

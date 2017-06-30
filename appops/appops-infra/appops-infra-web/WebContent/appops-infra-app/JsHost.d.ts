@@ -20,5 +20,4 @@ declare module JsHost {
         getCountryList(back: T) : void ;
         getCountriesFiltered(filter : CountryFilter, back : T) : void ;
     }
-
 }

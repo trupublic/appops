@@ -150,12 +150,6 @@
 					</webapp>
 					<webAppSourceDirectory>${project.basedir}/WebContent</webAppSourceDirectory>
 					<stopWait>10</stopWait>
-					<connectors>
-						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-							<port>8080</port>
-							<maxIdleTime>60000</maxIdleTime>
-						</connector>
-					</connectors>
 
 					<dependencies>
 						<dependency>
@@ -164,10 +158,6 @@
 							<version>0.9.29</version>
 						</dependency>
 					</dependencies>
-					<!-- <requestLog implementation="org.mortbay.jetty.NCSARequestLog"> 
-						<filename>./target/yyyy_mm_dd.request.log</filename> <retainDays>90</retainDays> 
-						<append>true</append> <extended>false</extended> <logTimeZone>GMT</logTimeZone> 
-						</requestLog> -->
 				</configuration>
 			</plugin>
 		</plugins>

@@ -20,6 +20,7 @@
   	<module>appops-infra-appserver</module>
   	<module>appops-infra-benchmarking</module>
   	<module>library-demo-service</module>
+  	<module>appops-cache-service</module>
   </modules>
   <dependencies>
   	<dependency>

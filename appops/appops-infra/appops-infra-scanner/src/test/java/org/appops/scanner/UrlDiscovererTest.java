@@ -35,10 +35,10 @@ public class UrlDiscovererTest {
 			 */
 			URLClassLoader loader = new URLClassLoader(url, ClassLoader.getSystemClassLoader());
 
-			file[0] = new File(loader.getResource("com/assets/A.class").getFile());
-			file[1] = new File(loader.getResource("com/assets/B.class").getFile());
-			file[2] = new File(loader.getResource("com/assets/C.class").getFile());
-			file[3] = new File(loader.getResource("com/assets/Demo.jar").getFile());
+			file[0] = new File(loader.getResource("assets/A.class").getFile());
+			file[1] = new File(loader.getResource("assets/B.class").getFile());
+			file[2] = new File(loader.getResource("assets/C.class").getFile());
+	     	file[3] = new File(loader.getResource("assets/B.jar").getFile());
 
 			/**
 			 * this toURI() converts file to abstract path and then toURL() method
@@ -83,7 +83,7 @@ public class UrlDiscovererTest {
 			 * files from that folder.
 			 */
 
-			folder[0] = new File(loader.getResource("com/assets/Demo.jar").getFile());
+			folder[0] = new File(loader.getResource("assets/B.jar").getFile());
 			folderURL[0] = folder[0].toURI().toURL();
 
 			UrlDiscoverer disc = new UrlDiscoverer(folderURL);

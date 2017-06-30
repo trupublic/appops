@@ -42,15 +42,15 @@ public class TypeScriptGeneratorTest {
 		/**
 		 * Creates a type Script file and Checks the generated file is created or not.
 		 * */
-		TypeScriptGenerator.main(new String[]{".\\","JunitTestModule"});
+		TypeScriptGenerator.main(new String[]{".\\","ModuleFirstTsgenerator12"});
 		String resultFile = null;
 		File fileDirectory = new File("/home/iternia/git/appops/appops/appops-infra/appops-infra-tsgenerator/");
 		File[] allFiles = fileDirectory.listFiles();
 		for(File files : allFiles)
-			if(files.getName().equals(".\\JunitTestModule.d.ts"))
+			if(files.getName().equals(".\\ModuleFirstTsgenerator12.d.ts"))
 				resultFile = files.getName();
 
-		assertEquals(".\\JunitTestModule.d.ts", resultFile);
+		assertEquals(".\\ModuleFirstTsgenerator12.d.ts", resultFile);
 
 		/**
 		 * Checks for the content of the file for expected methods from TestClass.java

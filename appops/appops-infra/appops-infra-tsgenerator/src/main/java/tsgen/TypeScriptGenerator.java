@@ -1,6 +1,7 @@
 package tsgen;
 
 import java.io.FileWriter;
+
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashSet;
@@ -26,7 +27,9 @@ public class TypeScriptGenerator {
 	 */
 	public static void main(String[] args) throws IOException {
 
+		System.out.println("****"+args);
 		System.out.println("TypeScriptGenerator executing with arg " + args[0]+" and "+ args[1]);
+	
 
 		if (args == null || args[0] == null || args[0].isEmpty())
 			throw new IOException("Need to have annotation class name as a parameter to do conversion") ;
@@ -36,6 +39,7 @@ public class TypeScriptGenerator {
 
 		String genPath ;
 		String moduleName ; 
+	
 
 		if (args[0] != null && !args[0].isEmpty())
 			genPath = args[0];
@@ -59,20 +63,26 @@ public class TypeScriptGenerator {
 			serviceAnnotationClass = Class.forName(SERVICETYPE);
 		}catch (ClassNotFoundException e) {
 			throw new IOException(e);
-		} 
+ 		} 
+	
 				
 		// Retrieve the set of classes annotated with @JsType
-		ClassPathScanner scanner = new ClassPathScanner() ;
+ 		ClassPathScanner scanner = new ClassPathScanner() ;
 		Collection<Class<?>> jsTypeClasses = scanner.getClassesAnnotatedWith(antClass);
+		
+		
 		
 		// Retrieve the set of interfaces annotated with @Service  
 		scanner = new ClassPathScanner() ;
 		Collection<Class<?>> serviceInterfaces = scanner.getInterfacesAnnotatedWith(serviceAnnotationClass);
 				
+		
 		Set<Class<?>> classes = new HashSet<Class<?>>();
 		classes.addAll(jsTypeClasses);
+	
+		
 		classes.addAll(serviceInterfaces);
-
+		
 		//Creates a typeScript file with Name passed as "args[1].d.ts"
 		FileWriter fw = new FileWriter(genPath + moduleName + ".d.ts"); 
 		Module m = dg.generateTypeScript(moduleName, classes, null);

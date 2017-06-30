@@ -11,13 +11,16 @@ import tsgen.TypeScriptGenerator;
 
 public class TypeScriptGeneratorTest {
 
-	//@Test
+	@Test
 	public void testGeneration() throws IOException{
 		
 		final File f = new File(TypeScriptGeneratorTest.class.getProtectionDomain().getCodeSource().getLocation().getPath());
 		
 		TypeScriptGenerator.main(new String[] { jsinterop.annotations.JsType.class.getCanonicalName() , f.getParent() , "JsTestHost" });
 		
+		
+	//	TypeScriptGenerator.main(new String[] { jsinterop.annotations.JsType.class.getCanonicalName() , ".\\" , "targetJsTestHost" });
+		//File output = new File(f.getParent() + "targetJsTestHost.d.ts") ;
 		File output = new File(f.getParent() + "JsTestHost.d.ts") ;
 		
 		assertTrue(output.exists()) ;

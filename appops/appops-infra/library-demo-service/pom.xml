@@ -24,63 +24,60 @@
 			<artifactId>appops-infra-tsgenerator</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
 		<dependency>
 			<groupId>org.appops</groupId>
 			<artifactId>appops-infra-appserver</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
+		<!-- <dependency> <groupId>org.appops</groupId> <artifactId>appops-infra-appserver</artifactId> 
+			<version>0.0.1-SNAPSHOT</version> </dependency> -->
 	</dependencies>
 
 	<build>
 		<plugins>
-
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.6.0</version>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
 				<executions>
 					<execution>
+						<id>ant-execute</id>
+						<phase> install </phase>
+						<configuration>
+							<target>
+								<property name="runtime_classpath" refid="maven.runtime.classpath" />
+
+								<exec executable="java" spawn="false">
+
+									<arg value="-classpath" />
+
+									<arg value="${runtime_classpath}" />
+
+									<arg value="tsgen.TypeScriptGenerator" />
+
+									<!-- folder path for placing typescript files - \ at the end is 
+										important -->
+
+									<!-- <arg value="..\appops-infra-web\WebContent\appops-infra-app\typings\" 
+										/> -->
+
+									<arg value=".\\" />
+
+									<!-- specify typescript module name you want here -->
+									<arg value="TestAppoposLibraryServiceModule3" />
+
+								</exec>
+							</target>
+						</configuration>
 						<goals>
-							<goal>java</goal>
 							<goal>run</goal>
 						</goals>
 					</execution>
 				</executions>
-				<configuration>
-					<mainClass>tsgen.TypeScriptGenerator</mainClass>
-
-
-
-					<arguments>
-						<!-- <argument>org.appops.infra.core.annotations.Service</argument> -->
-						<!-- <argument>/appops-infra-web/WebContent/appops-infra-app/</argument> -->
-						<argument>.\\</argument>
-						<argument>LibraryServiceTestDemo</argument>
-					</arguments>
-					<!-- <target> <property name="runtime_classpath" refid="maven.runtime.classpath" 
-						/> <exec executable="java" spawn="false"> <arg value="-classpath" /> <arg 
-						value="${runtime_classpath}" /> <echo message="runtime classpath: ${runtime_classpath}" 
-						/> <arg value="tsgen.TypeScriptGenerator" /> folder path for placing typescript 
-						files - \ at the end is important <arg value="${runtime_classpath}/appops-infra-web/WebContent/appops-infra-app/typings/" 
-						/> specify typescript module name you want here <arg value="LibraryServiceDemo" 
-						/> </exec> </target> -->
-
-				</configuration>
 			</plugin>
 
-			<!-- <plugin> <artifactId>maven-antrun-plugin</artifactId> <version>1.8</version> 
-				<executions> <execution> <id>ant-execute</id> <phase> install </phase> <configuration> 
-				<mainClass>tsgen.TypeScriptGenerator</mainClass> <target> <property name="runtime_classpath" 
-				refid="maven.runtime.classpath" /> <exec executable="java" spawn="false"> 
-				<arg value="-classpath" /> <arg value="${runtime_classpath}" /> <echo message="runtime 
-				classpath: ${runtime_classpath}" /> <arg value="tsgen.TypeScriptGenerator" 
-				/> folder path for placing typescript files - \ at the end is important <arg 
-				value="${runtime_classpath}/appops-infra-web/WebContent/appops-infra-app/typings/" 
-				/> specify typescript module name you want here <arg value="LibraryServiceDemo" 
-				/> </exec> </target> </configuration> <goals> <goal>java</goal> <goal>run</goal> 
-				</goals> </execution> </executions> </plugin> -->
 		</plugins>
 
 	</build>
+
 </project>

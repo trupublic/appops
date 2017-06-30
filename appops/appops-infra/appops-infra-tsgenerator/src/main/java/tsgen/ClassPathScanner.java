@@ -1,10 +1,12 @@
 package tsgen;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
 
 import org.appops.scanner.ClasspathDiscoverer;
+import org.appops.scanner.ConfigurableDiscoverer;
 import org.appops.scanner.Discoverer;
 import org.appops.scanner.listener.ClassAnnotationDiscoveryListener;
 
@@ -12,11 +14,15 @@ import org.appops.scanner.listener.ClassAnnotationDiscoveryListener;
 
 
 public class ClassPathScanner {
-	
+
+
+	private  URL[] toScan=null;
+	private  String[] paths=null;
+
 	public ClassPathScanner(){
-	
+
 	}
-	
+
 	/**
 	 * returns the set of classes annotated with specified annotation 
 	 * @param t class object representing the annotation
@@ -25,7 +31,17 @@ public class ClassPathScanner {
 	 */
 
 	public Set<Class<?>> getInterfacesAnnotatedWith(Class<?> t) throws IOException{
-		Discoverer discoverer = new ClasspathDiscoverer();
+		//Discoverer discoverer = new ClasspathDiscoverer();
+
+		Discoverer discoverer =null;
+
+		if (toScan != null){
+			//discoverer = new ClasspathDiscoverer(toScan);
+			discoverer = new ConfigurableDiscoverer(toScan);
+		}else
+			discoverer = new ConfigurableDiscoverer(paths,true);
+
+
 		MyAnnotationDiscoveryListener listener = new MyAnnotationDiscoveryListener(new String[] {t.getCanonicalName()});
 		listener.findOnlyInterfaces = true ;
 		discoverer.addAnnotationListener(listener);
@@ -33,9 +49,19 @@ public class ClassPathScanner {
 		return listener.getDiscovered() ;
 	}
 
-	
+
 	public Set<Class<?>> getClassesAnnotatedWith(Class<?> t) throws IOException{
-		Discoverer discoverer = new ClasspathDiscoverer();
+
+		//Discoverer discoverer = new ClasspathDiscoverer();
+		
+		Discoverer discoverer =null;
+
+		if (toScan != null){
+			//discoverer = new ClasspathDiscoverer(toScan);
+			discoverer = new ConfigurableDiscoverer(toScan);
+		}else
+			discoverer = new ConfigurableDiscoverer(paths,true);
+
 		MyAnnotationDiscoveryListener listener = new MyAnnotationDiscoveryListener(new String[] {t.getCanonicalName()});
 		discoverer.addAnnotationListener(listener);
 		discoverer.discover();
@@ -45,19 +71,19 @@ public class ClassPathScanner {
 	static class MyAnnotationDiscoveryListener implements ClassAnnotationDiscoveryListener {
 
 		boolean findOnlyInterfaces = false ;
-		
+
 		String[] supportedAnnotations ; 
-		
+
 		HashSet<Class<?>> discoveredClasses = new HashSet<Class<?>> () ;
-		
+
 		public MyAnnotationDiscoveryListener(String[] annotations){
 			supportedAnnotations = annotations ;
 		}
-		
+
 		public Set<Class<?>> getDiscovered(){
 			return discoveredClasses ;
 		}
-		
+
 		@Override
 		public String[] supportedAnnotations() {
 			return supportedAnnotations ;
@@ -65,22 +91,23 @@ public class ClassPathScanner {
 
 		@Override
 		public void discovered(String clazz, String annotation) {
-			
+
 			Class<?> clazzInstance = null ;
-			
+
 			try {
 				clazzInstance = Class.forName(clazz) ;
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-			
+
 			// In this case it finds all interfaces only
 			if (findOnlyInterfaces && clazzInstance.isInterface())
 				discoveredClasses.add(clazzInstance) ;
 			else
 				// Finds all classes and interfaces annotated
 				discoveredClasses.add(clazzInstance) ;
-			
+
 		}
+		
 	}
 }

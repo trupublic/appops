@@ -276,7 +276,7 @@ public abstract class Discoverer {
      * @return
      * @throws IOException
      */
-    private ResourceIterator getResourceIterator(URL url, Filter filter) throws IOException {
+    ResourceIterator getResourceIterator(URL url, Filter filter) throws IOException {
         String urlString = url.toString();
         if (urlString.endsWith("!/")) {
             urlString = urlString.substring(4);

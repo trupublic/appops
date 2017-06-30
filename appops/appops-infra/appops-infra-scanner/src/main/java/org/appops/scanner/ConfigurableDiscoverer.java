@@ -13,8 +13,8 @@ public class ConfigurableDiscoverer extends Discoverer {
 	private URL[] urls;
 
 	public ConfigurableDiscoverer(String paths[],boolean b){
-		super();
 		/*classpath*/
+		filter=new FilterImpl();
 		if(b == true){
 			arrayPath = paths;
 			classPath = true;
@@ -27,7 +27,7 @@ public class ConfigurableDiscoverer extends Discoverer {
 	}
 	
 	public ConfigurableDiscoverer(URL[] urls){
-		super();
+		filter=new FilterImpl();
 		this.urls = urls;
 		url = true;
 	}

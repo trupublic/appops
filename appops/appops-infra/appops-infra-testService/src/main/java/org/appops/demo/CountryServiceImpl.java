@@ -16,7 +16,6 @@ public class CountryServiceImpl implements CountryService {
 
 	private final String USERNAME = "root";
 	private final String PASSWORD = "mysql#htznr";
-	//private final String CONNECTION_STRING = "jdbc:sqlserver://data2\\sql2014;databaseName=PyramidGis";
 	private final String CONNECTION_STRING = "jdbc:mysql://localhost/gisdemo";
 	private final String DEFAULT_QUERY_PREFIX = "SELECT country, city, Latitude, Longitude FROM cities limit ";
 

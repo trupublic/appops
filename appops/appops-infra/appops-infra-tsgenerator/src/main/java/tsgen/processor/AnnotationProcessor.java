@@ -31,7 +31,7 @@ import jsinterop.annotations.JsType;
  * @author Debasish.Padhy
  * 
  *         TODO(1) : Currently hard coded to use fixed top level project name -
- *         PyramidG2 TODO(2) : Need to make it more configurable for project
+ *         appopsDemo TODO(2) : Need to make it more configurable for project
  *         source / resource folders
  * 
  *         You can configure the GWT modules to copy by specifying the module
@@ -39,7 +39,7 @@ import jsinterop.annotations.JsType;
  * 
  *         <compilerArg>-AxmlModuleNames=Dto,GwtBiOffice</compilerArg> <!-- no
  *         trailing gwt.xml / -->
- *         <compilerArg>-AmodulePath=pyramid\\bioffice\\common</compilerArg>
+ *         <compilerArg>-AmodulePath=appops\\bioffice\\common</compilerArg>
  *         <!-- no trailing or beginning / -->
  */
 
@@ -50,7 +50,7 @@ public class AnnotationProcessor extends AbstractProcessor {
 
 	private ProcessingEnvironment processingEnv = null;
 
-	private String projectName = "pyramidG2";
+	private String projectName = "appopsDemo";
 
 	private String moduleNames = null;
 	private String modulePath = null;
@@ -104,7 +104,7 @@ public class AnnotationProcessor extends AbstractProcessor {
 		projectRoot = System.getProperty("maven.multiModuleProjectDirectory");
 
 		if (projectRoot == null)
-			projectRoot = "C:\\Users\\debasish.padhy\\git\\G2\\trunk\\pyramidG2\\pyramid.server\\pyramid.bioffice.common";
+			projectRoot = "C:\\Users\\debasish.padhy\\git\\G2\\trunk\\appopsDemo\\appops.server\\appops.bioffice.common";
 
 		fileSeparator = System.getProperty("file.separator");
 
@@ -129,7 +129,7 @@ public class AnnotationProcessor extends AbstractProcessor {
 	}
 
 	public String getDestinationResourcesFolder() {
-		return getPyramidG2Folder() + "pyramid.server" + fileSeparator + "pyramid.bioffice.gwt" + fileSeparator + "src"
+		return getAppOpsDemoFolder() + "appops.server" + fileSeparator + "appops.bioffice.gwt" + fileSeparator + "src"
 				+ fileSeparator + "main" + fileSeparator + "resources" + fileSeparator;
 	}
 
@@ -138,11 +138,11 @@ public class AnnotationProcessor extends AbstractProcessor {
 	}
 
 	public String getDestinationFolder() {
-		return getPyramidG2Folder() + "pyramid.server" + fileSeparator + "pyramid.bioffice.gwt" + fileSeparator + "src"
+		return getAppOpsDemoFolder() + "appops.server" + fileSeparator + "appops.bioffice.gwt" + fileSeparator + "src"
 				+ fileSeparator + "main" + fileSeparator + "java" + fileSeparator;
 	}
 
-	public String getPyramidG2Folder() {
+	public String getAppOpsDemoFolder() {
 
 		if (projectRoot == null) {
 			throw new RuntimeException(

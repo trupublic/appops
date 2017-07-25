@@ -11,6 +11,16 @@
   	<scm>
    		<connection>scm:git:ssh:http://github.com/aino-gautam/appops</connection>
   	</scm>
+  	
+  	<distributionManagement>
+	    <!-- Publish the SNAPSHOT Version releases here -->
+	    <snapshotRepository>
+	        <id>appops-infra-appserver-SNAPSHOT</id>
+	        <name>appops-infra-appserver</name>
+	        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+	    </snapshotRepository>
+	</distributionManagement>
+	
 	<dependencies>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>

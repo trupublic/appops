@@ -10,6 +10,18 @@
   <artifactId>appops-infra</artifactId>
   <packaging>pom</packaging>
   
+  <scm>
+   		<connection>scm:git:ssh:http://github.com/aino-gautam/appops</connection>
+  	</scm>
+  	<distributionManagement>
+	    <!-- Publish the SNAPSHOT Version releases here -->
+	    <snapshotRepository>
+	        <id>appops-infra-SNAPSHOT</id>
+	        <name>appops-infra</name>
+	        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+	    </snapshotRepository>
+	</distributionManagement>
+  
   <name>appops infrastructure projects in this tree</name>
   <modules>
   	<module>appops-infra-core</module>
@@ -28,4 +40,20 @@
   		<version>4.0</version>
   	</dependency>
   </dependencies>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+		  	<groupId>org.apache.maven.plugins</groupId>
+		  	<artifactId>maven-release-plugin</artifactId>
+		  	<version>2.5.3</version>
+		  	<configuration>
+		    	<autoVersionSubmodules>true</autoVersionSubmodules>
+		    	<useReleaseProfile>false</useReleaseProfile>
+		    	<releaseProfiles>release</releaseProfiles>
+		    	<goals>deploy</goals>
+		  	</configuration>
+	 	</plugin>
+  	</plugins>
+  </build>
 </project>

@@ -3,13 +3,16 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.appops</groupId>
+		<groupId>com.ainosoft</groupId>
 		<artifactId>appops-infra</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>appops-infra-tsgenerator</artifactId>
 	<name>Java to TypeScript generator</name>
+	<scm>
+   		<connection>scm:git:ssh:http://github.com/aino-gautam/appops</connection>
+  	</scm>
 
 	<properties>
 		<jackson.core.version>2.6.4</jackson.core.version>
@@ -72,12 +75,12 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.appops</groupId>
+			<groupId>com.ainosoft</groupId>
 			<artifactId>appops-infra-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>org.appops</groupId>
+			<groupId>com.ainosoft</groupId>
 			<artifactId>appops-infra-scanner</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
@@ -95,6 +98,22 @@
 					<compilerArgument>-proc:none</compilerArgument>
 				</configuration>
 			</plugin>
+			
+			<plugin>
+		  		<groupId>org.apache.maven.plugins</groupId>
+		  		<artifactId>maven-release-plugin</artifactId>
+		  		<version>2.5.3</version>
+		  		<configuration>
+		    		<autoVersionSubmodules>true</autoVersionSubmodules>
+		    		<useReleaseProfile>false</useReleaseProfile>
+		    		<releaseProfiles>release</releaseProfiles>
+		    		<goals>deploy</goals>
+		  		</configuration>
+			</plugin>
+			
 		</plugins>
 	</build>
+	
+	
+	
 </project>

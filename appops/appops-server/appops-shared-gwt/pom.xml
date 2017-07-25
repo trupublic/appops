@@ -6,7 +6,7 @@
 
 	<parent>
 		<artifactId>appops-server</artifactId>
-		<groupId>org.appops</groupId>
+		<groupId>com.ainosoft</groupId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>appops-shared-gwt</artifactId>

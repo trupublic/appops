@@ -1,10 +1,31 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.appops</groupId>
+    <groupId>com.ainosoft</groupId>
     <artifactId>appops-infra</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>appops-infra-core</artifactId>
   <name>appops core library</name>
+  <scm>
+   		<connection>scm:git:ssh:http://github.com/aino-gautam/appops</connection>
+  </scm>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+	  		<groupId>org.apache.maven.plugins</groupId>
+	  		<artifactId>maven-release-plugin</artifactId>
+	  		<version>2.5.3</version>
+	  		<configuration>
+	    		<autoVersionSubmodules>true</autoVersionSubmodules>
+	    		<useReleaseProfile>false</useReleaseProfile>
+	    		<releaseProfiles>release</releaseProfiles>
+	    		<goals>deploy</goals>
+	  		</configuration>
+ 		</plugin>
+  	</plugins>
+  </build>
+  
+  
 </project>

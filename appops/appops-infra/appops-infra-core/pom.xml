@@ -3,12 +3,13 @@
   <parent>
     <groupId>com.ainosoft</groupId>
     <artifactId>appops-infra</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
   </parent>
   <artifactId>appops-infra-core</artifactId>
   <name>appops core library</name>
   <scm>
    		<connection>scm:git:ssh:http://github.com/aino-gautam/appops</connection>
+    <tag>HEAD</tag>
   </scm>
   <distributionManagement>
 	    <!-- Publish the SNAPSHOT Version releases here -->

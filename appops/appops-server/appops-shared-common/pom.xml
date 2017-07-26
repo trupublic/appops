@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.ainosoft</groupId>
 		<artifactId>appops-server</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>appops-shared-common</artifactId>
@@ -50,7 +49,7 @@
 		<dependency>
 			<groupId>com.ainosoft</groupId>
 			<artifactId>appops-infra-tsgenerator</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
@@ -124,12 +123,8 @@
 				for java classes in the specified folder -->
 			<!-- <plugin> <artifactId>maven-antrun-plugin</artifactId> <version>1.8</version> 
 				<executions> <execution> <id>ant-execute</id> <phase> test </phase> <configuration> 
-				<target> <property name="runtime_classpath" refid="maven.runtime.classpath" 
-				/> <exec executable="java" spawn="false"> <arg value="-classpath" /> <arg 
-				value="${runtime_classpath}" /> <arg value="tsgen.TypeScriptGenerator" /> 
-				<arg value="jsinterop.annotations.JsType" /> <arg value="pyramid.infra.core.annotations.Service" 
-				/> folder path for placing typescript files - \ at the end is important <arg 
-				value="..\pyramid.bioffice.webserver\WebContent\typings\" /> specify typescript 
+				<target> <property name="runtime_classpath" refid="maven.runtime.classpath" /> <exec executable="java" spawn="false"> <arg value="-classpath" /> <arg value="${runtime_classpath}" /> <arg value="tsgen.TypeScriptGenerator" /> 
+				<arg value="jsinterop.annotations.JsType" /> <arg value="pyramid.infra.core.annotations.Service" /> folder path for placing typescript files - \ at the end is important <arg value="..\pyramid.bioffice.webserver\WebContent\typings\" /> specify typescript 
 				module name you want here <arg value="JsHost" /> </exec> </target> </configuration> 
 				<goals> <goal>run</goal> </goals> </execution> </executions> </plugin> -->
 

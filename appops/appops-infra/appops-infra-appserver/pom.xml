@@ -3,13 +3,13 @@
 	<parent>
 		<groupId>com.ainosoft</groupId>
 		<artifactId>appops-infra</artifactId>
-		<version>0.0.1</version>
+		<version>0.0.2-SNAPSHOT</version>
 	</parent>
 	<artifactId>appops-infra-appserver</artifactId>
 	<name>appops infrastructure app server</name>
   	<scm>
    		<connection>scm:git:ssh:http://github.com/aino-gautam/appops</connection>
-  	  <tag>appops-0.0.1</tag>
+  	  <tag>HEAD</tag>
   </scm>
   	
   	<distributionManagement>
@@ -29,7 +29,7 @@
 		<dependency>
 			<groupId>com.ainosoft</groupId>
 			<artifactId>appops-infra-core</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
@@ -78,27 +78,27 @@
 		<dependency>
 			<groupId>com.ainosoft</groupId>
 			<artifactId>appops-infra-tsgenerator</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.ainosoft</groupId>
 			<artifactId>appops-infra-sample-service</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.ainosoft</groupId>
 			<artifactId>appops-infra-benchmarking</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.ainosoft</groupId>
 			<artifactId>library-demo-service</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.ainosoft</groupId>
 		    <artifactId>appops-infra-scanner</artifactId>
-		    <version>0.0.1</version>
+		    <version>0.0.2-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

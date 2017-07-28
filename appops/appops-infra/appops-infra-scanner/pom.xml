@@ -9,7 +9,7 @@
 	<name>Class and method scanner</name>
 	<description>Can scan the file system to find out specific type of classes</description>
 	<scm>
-   		<connection>scm:git:ssh:http://github.com/aino-gautam/appops</connection>
+   		<connection>scm:git:ssh:git@github.com:aino-gautam/appops.git</connection>
   	  <tag>HEAD</tag>
   </scm>
   	<distributionManagement>

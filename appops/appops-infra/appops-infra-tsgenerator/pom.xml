@@ -10,7 +10,7 @@
 	<artifactId>appops-infra-tsgenerator</artifactId>
 	<name>Java to TypeScript generator</name>
 	<scm>
-   		<connection>scm:git:ssh:http://github.com/aino-gautam/appops</connection>
+   		<connection>scm:git:ssh:git@github.com:aino-gautam/appops.git</connection>
   	  <tag>HEAD</tag>
   </scm>
   	<distributionManagement>

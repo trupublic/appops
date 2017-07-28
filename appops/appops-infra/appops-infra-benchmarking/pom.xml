@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.ainosoft</groupId>
 		<artifactId>appops-infra</artifactId>
-		<version>0.0.3-SNAPSHOT</version>
+		<version>0.0.2-SNAPSHOT</version>
 	</parent>
 	<artifactId>appops-infra-benchmarking</artifactId>
 	<name>Appops Infrastructure benchmarking service</name>
@@ -12,7 +12,7 @@
 		<dependency>
 			<groupId>com.ainosoft</groupId>
 			<artifactId>appops-infra-core</artifactId>
-			<version>0.0.3-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.inject</groupId>
@@ -44,7 +44,7 @@
 		<dependency>
 			<groupId>com.ainosoft</groupId>
 			<artifactId>appops-infra-tsgenerator</artifactId>
-			<version>0.0.3-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

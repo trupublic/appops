@@ -1,9 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.ainosoft</groupId>
 		<artifactId>appops-infra</artifactId>
-		<version>0.0.3-SNAPSHOT</version>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>appops-infra-benchmarking</artifactId>
 	<name>Appops Infrastructure benchmarking service</name>
@@ -12,7 +13,7 @@
 		<dependency>
 			<groupId>com.ainosoft</groupId>
 			<artifactId>appops-infra-core</artifactId>
-			<version>0.0.3-SNAPSHOT</version>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.inject</groupId>
@@ -44,7 +45,7 @@
 		<dependency>
 			<groupId>com.ainosoft</groupId>
 			<artifactId>appops-infra-tsgenerator</artifactId>
-			<version>0.0.3-SNAPSHOT</version>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
@@ -78,22 +79,23 @@
 						<configuration>
 							<target>
 								<property name="runtime_classpath" refid="maven.runtime.classpath" />
-								
+
 								<exec executable="java" spawn="false">
-									
+
 									<arg value="-classpath" />
-									
+
 									<arg value="${runtime_classpath}" />
-									
+
 									<arg value="tsgen.TypeScriptGenerator" />
-									
-									<!-- folder path for placing typescript files - \ at the end is important  -->
-									
+
+									<!-- folder path for placing typescript files - \ at the end is 
+										important -->
+
 									<arg value="..\appops-infra-web\WebContent\appops-infra-app\typings\" />
-								
-									<!-- specify typescript module name you want here  -->
+
+									<!-- specify typescript module name you want here -->
 									<arg value="Benchmark" />
-								
+
 								</exec>
 							</target>
 						</configuration>

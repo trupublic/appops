@@ -1,0 +1,93 @@
+[INFO] Error stacktraces are turned on.
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] appops reactor
+[INFO] appops infrastructure projects in this tree
+[INFO] appops core library
+[INFO] Class and method scanner
+[INFO] Java to TypeScript generator
+[INFO] SampleService - Infrastructure test data Service
+[INFO] Appops Infrastructure benchmarking service
+[INFO] library demo service
+[INFO] appops infrastructure app server
+[INFO] appops infrastructure web service
+[INFO] appops server
+[INFO] appops-shared-common
+[INFO] appops gwt common
+[INFO] 
+[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building appops reactor 0.0.2
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-release-plugin:2.5.3:clean (default-cli) @ appops ---
+[INFO] Cleaning up after release...
+[INFO] 
+[INFO] --- maven-release-plugin:2.5.3:prepare (default-cli) @ appops ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] appops reactor .................................... FAILURE [  0.495 s]
+[INFO] appops infrastructure projects in this tree ....... SKIPPED
+[INFO] appops core library ............................... SKIPPED
+[INFO] Class and method scanner .......................... SKIPPED
+[INFO] Java to TypeScript generator ...................... SKIPPED
+[INFO] SampleService - Infrastructure test data Service .. SKIPPED
+[INFO] Appops Infrastructure benchmarking service ........ SKIPPED
+[INFO] library demo service .............................. SKIPPED
+[INFO] appops infrastructure app server .................. SKIPPED
+[INFO] appops infrastructure web service ................. SKIPPED
+[INFO] appops server ..................................... SKIPPED
+[INFO] appops-shared-common .............................. SKIPPED
+[INFO] appops gwt common ................................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 0.753 s
+[INFO] Finished at: 2017-09-18T15:08:54+05:30
+[INFO] Final Memory: 11M/212M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-release-plugin:2.5.3:prepare (default-cli) on project appops: You don't have a SNAPSHOT project in the reactor projects list. -> [Help 1]
+org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal org.apache.maven.plugins:maven-release-plugin:2.5.3:prepare (default-cli) on project appops: You don't have a SNAPSHOT project in the reactor projects list.
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:212)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:108)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:76)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:116)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:361)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:213)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+Caused by: org.apache.maven.plugin.MojoFailureException: You don't have a SNAPSHOT project in the reactor projects list.
+	at org.apache.maven.plugins.release.PrepareReleaseMojo.prepareRelease(PrepareReleaseMojo.java:294)
+	at org.apache.maven.plugins.release.PrepareReleaseMojo.execute(PrepareReleaseMojo.java:240)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:133)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	... 19 more
+Caused by: org.apache.maven.shared.release.ReleaseFailureException: You don't have a SNAPSHOT project in the reactor projects list.
+	at org.apache.maven.shared.release.phase.CheckPomPhase.execute(CheckPomPhase.java:120)
+	at org.apache.maven.shared.release.DefaultReleaseManager.prepare(DefaultReleaseManager.java:234)
+	at org.apache.maven.shared.release.DefaultReleaseManager.prepare(DefaultReleaseManager.java:169)
+	at org.apache.maven.shared.release.DefaultReleaseManager.prepare(DefaultReleaseManager.java:146)
+	at org.apache.maven.shared.release.DefaultReleaseManager.prepare(DefaultReleaseManager.java:107)
+	at org.apache.maven.plugins.release.PrepareReleaseMojo.prepareRelease(PrepareReleaseMojo.java:286)
+	... 22 more
+[ERROR] 
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -10,7 +10,7 @@
 	<description>Can scan the file system to find out specific type of classes</description>
 	<scm>
 		<connection>scm:git:ssh:git@github.com:aino-gautam/appops.git</connection>
-		<tag>HEAD</tag>
+		<tag>appops-0.0.2</tag>
 	</scm>
 	<distributionManagement>
 		<!-- Publish the SNAPSHOT Version releases here -->

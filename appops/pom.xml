@@ -11,9 +11,17 @@
 	<name>appops reactor</name>
 	<url>appops.org</url>
 	<scm>
-		<connection>scm:git:ssh:git@github.com:aino-gautam/appops.git</connection>
-		<tag>appops-0.0.1</tag>
+		<connection>scm:git:git://github.com/aino-gautam/appops.git</connection>
+		<tag>appops-0.0.2</tag>
 	</scm>
+	<developers>
+		<developer>
+			<email>debasish@ainosoft.com</email>
+			<name>Debasish Padhy</name>
+			<url>https://github.com/aino-gautam</url>
+			<id>aino-gautam</id>
+		</developer>
+	</developers>
 	<distributionManagement>
 		<!-- Publish the SNAPSHOT Version releases here -->
 		<snapshotRepository>

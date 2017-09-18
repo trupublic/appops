@@ -10,9 +10,11 @@
 
 	<name>appops reactor</name>
 	<url>appops.org</url>
-	<scm>
+	<scm>	
+		<url>https://github.com/aino-gautam/appops.git</url>
 		<connection>scm:git:git://github.com/aino-gautam/appops.git</connection>
-		<tag>appops-0.0.2</tag>
+		<!-- <tag>appops-0.0.2</tag> -->
+		<developerConnection>scm:git:git@github.com:aino-gautam/appops.git</developerConnection>
 	</scm>
 	<developers>
 		<developer>

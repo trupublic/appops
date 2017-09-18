@@ -1,13 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>com.ainosoft</groupId>
-		<artifactId>appops-infra</artifactId>
-		<version>0.0.3-SNAPSHOT</version>
+		<artifactId>appops</artifactId>
+		<version>0.0.2-SNAPSHOT</version>
 	</parent>
-	<artifactId>appops-infra-scanner</artifactId>
-	<name>Class and method scanner</name>
-	<description>Can scan the file system to find out specific type of classes</description>
+
+	<artifactId>appops-infra</artifactId>
+	<packaging>pom</packaging>
+
 	<scm>
 		<connection>scm:git:ssh:git@github.com:aino-gautam/appops.git</connection>
 		<tag>appops-0.0.2</tag>
@@ -15,17 +17,28 @@
 	<distributionManagement>
 		<!-- Publish the SNAPSHOT Version releases here -->
 		<snapshotRepository>
-			<id>appops-infra-scanner-SNAPSHOT</id>
-			<name>appops-infra-scanner</name>
+			<id>appops-infra-SNAPSHOT</id>
+			<name>appops-infra</name>
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 
+	<name>appops infrastructure projects in this tree</name>
+	<modules>
+		<module>appops-infra-core</module>
+		<module>appops-infra-tsgenerator</module>
+		<module>appops-infra-scanner</module>
+		<module>appops-infra-web</module>
+		<module>appops-infra-testService</module>
+		<module>appops-infra-appserver</module>
+		<module>appops-infra-benchmarking</module>
+		<module>library-demo-service</module>
+	</modules>
 	<dependencies>
 		<dependency>
-			<groupId>org.javassist</groupId>
-			<artifactId>javassist</artifactId>
-			<version>3.19.0-GA</version>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>4.0</version>
 		</dependency>
 	</dependencies>
 
@@ -42,6 +55,7 @@
 						<version>1.8.1</version>
 					</dependency>
 				</dependencies>
+
 				<configuration>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
 					<useReleaseProfile>false</useReleaseProfile>
@@ -52,5 +66,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.ainosoft</groupId>
 		<artifactId>appops-infra</artifactId>
-		<version>0.0.3-SNAPSHOT</version>
+		<version>0.0.2-SNAPSHOT</version>
 	</parent>
 	<artifactId>appops-infra-scanner</artifactId>
 	<name>Class and method scanner</name>

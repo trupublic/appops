@@ -28,14 +28,14 @@
 	</developers>
 
 
-	<!-- <distributionManagement>
-		Publish the SNAPSHOT Version releases here
+	<distributionManagement>
+		<!-- Publish the SNAPSHOT Version releases here -->
 		<snapshotRepository>
-			<id>appops-SNAPSHOT</id>
+			<id>ossrh</id>
 			<name>appops</name>
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>
-	</distributionManagement> -->
+	</distributionManagement>
 
 	<properties>
 		<!-- Convenience property to set the GWT version -->

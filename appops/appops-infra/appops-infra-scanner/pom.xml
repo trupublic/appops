@@ -3,14 +3,14 @@
 	<parent>
 		<groupId>com.ainosoft</groupId>
 		<artifactId>appops-infra</artifactId>
-		<version>0.0.2</version>
+		<version>0.0.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>appops-infra-scanner</artifactId>
 	<name>Class and method scanner</name>
 	<description>Can scan the file system to find out specific type of classes</description>
 	<scm>
 		<connection>scm:git:ssh:git@github.com:aino-gautam/appops.git</connection>
-		<tag>appops-0.0.2</tag>
+		<tag>HEAD</tag>
 	</scm>
 	<distributionManagement>
 		<!-- Publish the SNAPSHOT Version releases here -->

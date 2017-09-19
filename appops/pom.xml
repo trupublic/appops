@@ -16,7 +16,7 @@
 		<url>https://github.com/aino-gautam/appops.git</url>
 		<connection>scm:git:git://github.com/aino-gautam/appops.git</connection>
 		<developerConnection>scm:git:git@github.com:aino-gautam/appops.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>appops-0.0.2</tag>
 	</scm>
 	<developers>
 		<developer>

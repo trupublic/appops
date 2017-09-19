@@ -102,17 +102,16 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
 				<version>2.2.2</version>
-				<dependencies>
+				<!-- <dependencies>
 					<dependency>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-scm-plugin</artifactId>
 						<version>1.8.1</version>
 					</dependency>
-				</dependencies>
+				</dependencies> -->
 				<configuration>
 					<mavenExecutorId>forked-path</mavenExecutorId>
-					<!-- <useReleaseProfile>false</useReleaseProfile> -->
-					<releaseProfiles>release</releaseProfiles>
+					<useReleaseProfile>false</useReleaseProfile>
 					<arguments>-Psonatype-oss-release</arguments>
 				</configuration>
 			</plugin>
@@ -146,6 +145,10 @@
 						<goals>
 							<goal>sign</goal>
 						</goals>
+						<configuration>
+							<keyname>13904FA8</keyname>
+							<passphraseServerId>13904FA8</passphraseServerId>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>

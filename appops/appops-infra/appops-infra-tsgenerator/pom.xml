@@ -16,7 +16,7 @@
 	<distributionManagement>
 		<!-- Publish the SNAPSHOT Version releases here -->
 		<snapshotRepository>
-			<id>appops-infra-tsgenerator-SNAPSHOT</id>
+			<id>ossrh</id>
 			<name>appops-infra-tsgenerator</name>
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>

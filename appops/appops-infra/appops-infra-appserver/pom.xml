@@ -15,7 +15,7 @@
 	<distributionManagement>
 		<!-- Publish the SNAPSHOT Version releases here -->
 		<snapshotRepository>
-			<id>appops-infra-appserver-SNAPSHOT</id>
+			<id>ossrh</id>
 			<name>appops-infra-appserver</name>
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>

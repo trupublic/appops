@@ -28,14 +28,14 @@
 	</developers>
 
 
-	<distributionManagement>
-		<!-- Publish the SNAPSHOT Version releases here -->
+	<!-- <distributionManagement>
+		Publish the SNAPSHOT Version releases here
 		<snapshotRepository>
 			<id>appops-SNAPSHOT</id>
 			<name>appops</name>
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>
-	</distributionManagement>
+	</distributionManagement> -->
 
 	<properties>
 		<!-- Convenience property to set the GWT version -->
@@ -141,7 +141,7 @@
 				<configuration>
 					<mavenExecutorId>forked-path</mavenExecutorId>
 					<useReleaseProfile>false</useReleaseProfile>
-					<!-- <arguments>-Psonatype-oss-release</arguments> -->
+					<arguments>-Possrh</arguments>
 					<distributionManagement>
 						<snapshotRepository>
 							<id>ossrh</id>

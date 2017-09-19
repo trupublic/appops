@@ -113,8 +113,8 @@
 							<goal>sign</goal>
 						</goals>
 						<configuration>
-							<keyname>2048R/3E11E281</keyname>
-							<passphraseServerId>2048R/3E11E281</passphraseServerId>
+							<keyname>3E11E281</keyname>
+							<passphraseServerId>3E11E281</passphraseServerId>
 						</configuration>
 					</execution>
 				</executions>

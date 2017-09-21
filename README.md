@@ -11,3 +11,5 @@ It allows you to
 > pass and retreive your json objects to and from your services. 
 
 Contributions are welcome. Please write an email or create an issue to get in touch. 
+
+Check out the Wiki to get started. 

@@ -115,6 +115,23 @@
 			<artifactId>appops-infra-appserver</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.ainosoft</groupId>
+			<artifactId>appops-infra-scanner</artifactId>
+			<version>0.0.2-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ainosoft</groupId>
+			<artifactId>appops-infra-sample-service</artifactId>
+			<version>0.0.2-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ainosoft</groupId>
+			<artifactId>appops-infra-benchmarking</artifactId>
+			<version>0.0.2-SNAPSHOT</version>
+		</dependency>
+		
+		
 	</dependencies>
 
 	<build>

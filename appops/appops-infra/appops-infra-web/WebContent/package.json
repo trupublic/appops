@@ -1,14 +1,12 @@
 {
   "name": "appops",
   "version": "1.0.0",
-
   "scripts": {
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "lite": "lite-server",
     "start": "concurrent \"npm run tsc:w\" \"npm run lite\" "
   },
-
   "dependencies": {
     "angular2": "2.0.0-beta.0",
     "systemjs": "0.19.6",
@@ -18,7 +16,6 @@
     "rxjs": "5.0.0-beta.0",
     "zone.js": "0.5.10"
   },
-
   "devDependencies": {
     "angular2": "2.0.0-beta.0",
     "systemjs": "0.19.6",

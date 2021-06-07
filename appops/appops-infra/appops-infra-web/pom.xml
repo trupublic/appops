@@ -85,7 +85,7 @@
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>1.0.13</version>
+			<version>1.2.0</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -160,7 +160,7 @@
 						<dependency>
 							<groupId>ch.qos.logback</groupId>
 							<artifactId>logback-classic</artifactId>
-							<version>0.9.29</version>
+							<version>1.2.0</version>
 						</dependency>
 					</dependencies>
 					<!-- <requestLog implementation="org.mortbay.jetty.NCSARequestLog"> 
